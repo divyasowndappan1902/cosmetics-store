@@ -1,0 +1,529 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Services - Maison Ros&eacute;e</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500&family=Playfair+Display:ital,wght@0,400;0,500;0,600;1,400&display=swap" rel="stylesheet">
+  <script src="tailwind-config.js"></script>
+</head>
+<body class="bg-[#FDF9F2] text-[#38251E] font-sans antialiased overflow-x-hidden">
+
+  <!-- Navbar -->
+    <nav class="max-w-7xl mx-auto px-6 py-6 flex items-center justify-between z-50 relative">
+        <!-- Logo -->
+        <div class="flex items-center cursor-pointer">
+            <a href="index.html">
+                <img src="logo_0027.webp" alt="Stackly Logo" class="h-10 md:h-12 w-auto object-contain" />
+            </a>
+        </div>
+        
+        <!-- Links -->
+        <div class="hidden md:flex items-center gap-8 text-[15px] font-medium">
+            <a href="index.html" class="text-gray-900 transition hover:text-[#ceab7e]">Home</a>
+            <a href="about.html" class="text-gray-900 transition hover:text-[#ceab7e]">About</a>
+            <a href="services.html" class="text-[#ceab7e] transition hover:opacity-70">Services</a>
+            <a href="blog.html" class="text-gray-900 transition hover:text-[#ceab7e]">Blog</a>
+            <a href="contact.html" class="text-gray-900 transition hover:text-[#ceab7e]">Contact</a>
+        </div>
+
+        <!-- Actions -->
+        <div class="flex items-center gap-5">
+            <button class="text-gray-800 hover:text-black transition">
+                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path></svg>
+            </button>
+            <button class="text-gray-800 hover:text-black transition relative">
+                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"></path></svg>
+                <span class="absolute -top-1.5 -right-2 bg-[#ceab7e] text-white text-[10px] font-bold w-4 h-4 flex items-center justify-center rounded-full">2</span>
+            </button>
+            <button class="text-gray-800 hover:text-black transition relative">
+                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 11V7a4 4 0 00-8 0v4M5 9h14l1 12H4L5 9z"></path></svg>
+                <span class="absolute -top-1.5 -right-2 bg-[#ceab7e] text-white text-[10px] font-bold w-4 h-4 flex items-center justify-center rounded-full">0</span>
+            </button>
+            <a href="signup.html" class="bg-[#38302A] text-white px-6 py-2.5 text-sm font-medium rounded-md hover:bg-black transition ml-2 inline-block">Register</a>
+        </div>
+    </nav>
+
+  <!-- Service Hero Section -->
+  <section class="relative w-full bg-[#FDF9F2] pt-8 pb-20 md:pt-12 md:pb-24 overflow-hidden">
+    
+    <!-- CSS for float animation -->
+    <style>
+      @keyframes float {
+        0% { transform: translateY(0px); }
+        50% { transform: translateY(-20px); }
+        100% { transform: translateY(0px); }
+      }
+      @keyframes float-reverse {
+        0% { transform: translateY(0px); }
+        50% { transform: translateY(15px); }
+        100% { transform: translateY(0px); }
+      }
+      .animate-float { animation: float 6s ease-in-out infinite; }
+      .animate-float-reverse { animation: float-reverse 7s ease-in-out infinite; }
+      .animate-float-slow { animation: float 8s ease-in-out infinite; }
+    </style>
+
+    <!-- Background Glow -->
+    <div class="absolute inset-0 z-0 overflow-hidden pointer-events-none">
+      <div class="absolute top-1/2 left-[70%] transform -translate-x-1/2 -translate-y-1/2 w-[500px] h-[500px] bg-[#EED8B6]/40 rounded-full blur-[80px]"></div>
+    </div>
+
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full">
+      <div class="flex flex-col md:flex-row items-center justify-between gap-12">
+        
+        <!-- Left Content -->
+        <div class="w-full md:w-5/12 z-10 relative mt-10 md:mt-0">
+          <h1 class="font-serif text-[#000000] text-[4.5rem] sm:text-[5.5rem] lg:text-[7rem] leading-[0.9] tracking-tight mb-2">
+            Expert beauty
+          </h1>
+          <h1 class="font-serif text-[#D0B286] text-[4.5rem] sm:text-[5.5rem] lg:text-[7rem] leading-[0.9] tracking-tighter mb-10">
+            made personal
+          </h1>
+          
+          <p class="font-serif text-[#38251E] text-[17px] md:text-[20px] leading-[1.6] max-w-[420px] mb-12 font-medium">
+            From a free shade match to full bridal makeup, our artists and skin specialists help you find what truly suits you, in our Madurai studio or on a video call.
+          </p>
+          
+          <a href="#" class="inline-block bg-[#3F2B26] text-[#FDF9F2] px-8 py-4 rounded-lg font-sans text-[15px] font-medium tracking-wide hover:bg-[#2A1B15] transition-colors shadow-lg">
+            Book a service
+          </a>
+        </div>
+
+        <!-- Right Content (Image & Floating Badges) -->
+        <div class="w-full md:w-7/12 relative flex justify-center items-center mt-12 md:mt-0 h-[450px] md:h-[650px] z-10">
+          
+          <!-- Product Image -->
+          <img src="opt_b882686d.webp" alt="Perfume Product" class="w-[320px] md:w-[450px] lg:w-[500px] h-auto object-contain mix-blend-multiply drop-shadow-2xl z-10 relative left-10 animate-float-slow" style="filter: contrast(1.1) brightness(1.05);" />
+
+          <!-- Left Floating Badge -->
+          <div class="absolute left-0 md:left-4 lg:left-12 top-[40%] bg-white rounded-[24px] px-8 py-5 shadow-[0_15px_40px_-10px_rgba(0,0,0,0.15)] border border-[#38251E]/5 z-20 flex flex-col items-center animate-float-reverse" style="transform: translateY(-50%);">
+            <p class="font-serif text-[#38251E] text-xl font-medium tracking-wide mb-1">1:1 with experts</p>
+            <p class="font-serif text-[#38251E]/80 text-[13px] tracking-wide">Certified consultants</p>
+          </div>
+
+          <!-- Right Floating Badge -->
+          <div class="absolute right-0 md:right-4 lg:right-12 bottom-[15%] bg-white rounded-[24px] px-8 py-4 shadow-[0_15px_40px_-10px_rgba(0,0,0,0.15)] border border-[#38251E]/5 z-20 flex flex-col items-center animate-float">
+            <div class="flex gap-1.5 mb-2 text-[#FFB800]">
+              <!-- 5 Stars -->
+              <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+              <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+              <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+              <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+              <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+            </div>
+            <p class="font-sans text-[#38251E]/80 text-[11px] font-medium tracking-wide uppercase">4.9 from 3,200 sessions</p>
+          </div>
+
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- What We Offer Section -->
+  <section class="w-full bg-[#FDF9F2] py-20 md:py-24 border-t border-[#38251E]/10">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      
+      <!-- Header -->
+      <div class="mb-16">
+        <h2 class="font-serif text-[3.5rem] md:text-[4.5rem] text-[#38251E] leading-none tracking-tight mb-4">
+          What we <span class="text-[#D0B286]">offer</span>
+        </h2>
+        <p class="font-serif text-[#38251E] text-lg md:text-[1.15rem] font-medium max-w-2xl">
+          Six services, each led by a trained specialist and built around your skin.
+        </p>
+      </div>
+
+      <!-- Services Grid -->
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8">
+        
+        <!-- Card 1 -->
+        <div class="service-card service-card bg-white rounded-[20px] p-8 md:p-10 shadow-[0_8px_30px_rgb(0,0,0,0.04)] border border-[#38251E]/5 flex flex-col h-full transition-all duration-500 hover:border-[#D0B286]/50 hover:shadow-[0_15px_35px_rgb(0,0,0,0.06)] hover:-translate-y-1">
+          <div class="w-[3.5rem] h-[3.5rem] bg-[#3F2B26] rounded-full flex items-center justify-center mb-8">
+            <span class="font-serif text-[#D0B286] text-2xl font-light">1</span>
+          </div>
+          <h3 class="font-serif text-[#38251E] text-[2rem] tracking-tight mb-4">Shade match</h3>
+          <p class="font-serif text-[#38251E] text-[15px] leading-[1.6] mb-12 flex-grow">
+            Find your exact foundation and lip shades under natural and warm light.
+          </p>
+          <p class="font-serif text-[#D0B286] text-[14px] mt-auto">Free, 20 minutes</p>
+        </div>
+
+        <!-- Card 2 -->
+        <div class="service-card service-card bg-white rounded-[20px] p-8 md:p-10 shadow-[0_8px_30px_rgb(0,0,0,0.04)] border border-[#38251E]/5 flex flex-col h-full transition-all duration-500 hover:border-[#D0B286]/50 hover:shadow-[0_15px_35px_rgb(0,0,0,0.06)] hover:-translate-y-1">
+          <div class="w-[3.5rem] h-[3.5rem] bg-[#3F2B26] rounded-full flex items-center justify-center mb-8">
+            <span class="font-serif text-[#D0B286] text-2xl font-light">2</span>
+          </div>
+          <h3 class="font-serif text-[#38251E] text-[2rem] tracking-tight mb-4">Skin analysis</h3>
+          <p class="font-serif text-[#38251E] text-[15px] leading-[1.6] mb-12 flex-grow">
+            A digital scan of hydration, oil and sensitivity, with a routine to match.
+          </p>
+          <p class="font-serif text-[#D0B286] text-[14px] mt-auto">&#8377;499, 30 minutes</p>
+        </div>
+
+        <!-- Card 3 -->
+        <div class="service-card service-card bg-white rounded-[20px] p-8 md:p-10 shadow-[0_8px_30px_rgb(0,0,0,0.04)] border border-[#38251E]/5 flex flex-col h-full transition-all duration-500 hover:border-[#D0B286]/50 hover:shadow-[0_15px_35px_rgb(0,0,0,0.06)] hover:-translate-y-1">
+          <div class="w-[3.5rem] h-[3.5rem] bg-[#3F2B26] rounded-full flex items-center justify-center mb-8">
+            <span class="font-serif text-[#D0B286] text-2xl font-light">3</span>
+          </div>
+          <h3 class="font-serif text-[#38251E] text-[2rem] tracking-tight mb-4">Makeup application</h3>
+          <p class="font-serif text-[#38251E] text-[15px] leading-[1.6] mb-12 flex-grow">
+            A full look for parties, interviews or photos, finished in 45 minutes.
+          </p>
+          <p class="font-serif text-[#D0B286] text-[14px] mt-auto">From &#8377;1,499</p>
+        </div>
+
+        <!-- Card 4 -->
+        <div class="service-card service-card bg-white rounded-[20px] p-8 md:p-10 shadow-[0_8px_30px_rgb(0,0,0,0.04)] border border-[#38251E]/5 flex flex-col h-full transition-all duration-500 hover:border-[#D0B286]/50 hover:shadow-[0_15px_35px_rgb(0,0,0,0.06)] hover:-translate-y-1">
+          <div class="w-[3.5rem] h-[3.5rem] bg-[#3F2B26] rounded-full flex items-center justify-center mb-8">
+            <span class="font-serif text-[#D0B286] text-2xl font-light">4</span>
+          </div>
+          <h3 class="font-serif text-[#38251E] text-[2rem] tracking-tight mb-4">Bridal makeup</h3>
+          <p class="font-serif text-[#38251E] text-[15px] leading-[1.6] mb-12 flex-grow">
+            A trial and wedding-day makeup that lasts through long ceremonies.
+          </p>
+          <p class="font-serif text-[#D0B286] text-[14px] mt-auto">From &#8377;9,999</p>
+        </div>
+
+        <!-- Card 5 -->
+        <div class="service-card service-card bg-white rounded-[20px] p-8 md:p-10 shadow-[0_8px_30px_rgb(0,0,0,0.04)] border border-[#38251E]/5 flex flex-col h-full transition-all duration-500 hover:border-[#D0B286]/50 hover:shadow-[0_15px_35px_rgb(0,0,0,0.06)] hover:-translate-y-1">
+          <div class="w-[3.5rem] h-[3.5rem] bg-[#3F2B26] rounded-full flex items-center justify-center mb-8">
+            <span class="font-serif text-[#D0B286] text-2xl font-light">5</span>
+          </div>
+          <h3 class="font-serif text-[#38251E] text-[2rem] tracking-tight mb-4">Gifting</h3>
+          <p class="font-serif text-[#38251E] text-[15px] leading-[1.6] mb-12 flex-grow">
+            Hand-packed boxes with a handwritten note, ready to send anywhere in India.
+          </p>
+          <p class="font-serif text-[#D0B286] text-[14px] mt-auto">From &#8377;799</p>
+        </div>
+
+        <!-- Card 6 -->
+        <div class="service-card service-card bg-white rounded-[20px] p-8 md:p-10 shadow-[0_8px_30px_rgb(0,0,0,0.04)] border border-[#38251E]/5 flex flex-col h-full transition-all duration-500 hover:border-[#D0B286]/50 hover:shadow-[0_15px_35px_rgb(0,0,0,0.06)] hover:-translate-y-1">
+          <div class="w-[3.5rem] h-[3.5rem] bg-[#3F2B26] rounded-full flex items-center justify-center mb-8">
+            <span class="font-serif text-[#D0B286] text-2xl font-light">6</span>
+          </div>
+          <h3 class="font-serif text-[#38251E] text-[2rem] tracking-tight mb-4">Refill club</h3>
+          <p class="font-serif text-[#38251E] text-[15px] leading-[1.6] mb-12 flex-grow">
+            Your favourites delivered every 2 or 3 months in refill pouches, saving 15%.
+          </p>
+          <p class="font-serif text-[#D0B286] text-[14px] mt-auto">Skip or cancel anytime</p>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- Personal Beauty Consultation Section -->
+  <section class="w-full bg-[#3F2B26] py-20 md:py-32 overflow-hidden">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex flex-col md:flex-row items-center gap-16 lg:gap-24">
+        
+        <!-- Left Image -->
+        <div class="w-full md:w-1/2 relative flex justify-center items-center">
+          <div class="relative w-full max-w-[450px] aspect-[4/5] rounded-3xl overflow-hidden shadow-2xl">
+             <!-- Glow effect behind image if it was transparent, but for Unsplash we just use a nice image -->
+             <img src="consultation.webp" alt="Beauty consultation" class="w-full h-full object-cover relative z-10" />
+             <!-- Inner dark gradient overlay to blend into the background -->
+             <div class="absolute inset-0 bg-gradient-to-t from-[#3F2B26] via-transparent to-transparent z-20"></div>
+             <div class="absolute inset-0 bg-gradient-to-r from-[#3F2B26] via-transparent to-transparent z-20"></div>
+          </div>
+        </div>
+
+        <!-- Right Content -->
+        <div class="w-full md:w-1/2 relative z-10">
+          <h2 class="font-serif text-[3.5rem] md:text-[4.5rem] text-white leading-[1.1] tracking-tight mb-1">
+            Personal beauty
+          </h2>
+          <h2 class="font-serif text-[#D0B286] text-[3.5rem] md:text-[4.5rem] leading-[1.1] tracking-tight mb-8">
+            consultation
+          </h2>
+          
+          <p class="font-serif text-white/90 text-lg md:text-[19px] leading-relaxed mb-10 max-w-lg">
+            An unhurried hour with a dedicated consultant to map your goals, skin, colouring and lifestyle into one clear plan.
+          </p>
+
+          <ul class="space-y-4 mb-12">
+            <li class="flex items-start gap-4">
+              <span class="w-1.5 h-1.5 bg-white/70 rounded-full mt-2.5 flex-shrink-0"></span>
+              <span class="font-serif text-white/80 text-[15px] leading-relaxed tracking-wide">Full skin and colour analysis with professional tools</span>
+            </li>
+            <li class="flex items-start gap-4">
+              <span class="w-1.5 h-1.5 bg-white/70 rounded-full mt-2.5 flex-shrink-0"></span>
+              <span class="font-serif text-white/80 text-[15px] leading-relaxed tracking-wide">A written beauty plan you keep after the session</span>
+            </li>
+            <li class="flex items-start gap-4">
+              <span class="w-1.5 h-1.5 bg-white/70 rounded-full mt-2.5 flex-shrink-0"></span>
+              <span class="font-serif text-white/80 text-[15px] leading-relaxed tracking-wide">Hand-picked samples to try at home</span>
+            </li>
+          </ul>
+
+          <div class="flex flex-wrap items-center gap-8">
+            <a href="#" class="inline-block bg-[#D0B286] text-white px-8 py-3.5 rounded font-sans text-[15px] font-medium tracking-wide hover:bg-[#B39366] transition-colors shadow-md">
+              Book a service
+            </a>
+            <div class="flex items-center gap-2 text-white/80">
+              <!-- Clock/History icon -->
+              <svg class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M16.023 9.348h4.992v-.001M2.985 19.644v-4.992m0 0h4.992m-4.993 0l3.181 3.183a8.25 8.25 0 0013.803-3.7M4.031 9.865a8.25 8.25 0 0113.803-3.7l3.181 3.182m0-4.991v4.99"></path><path stroke-linecap="round" stroke-linejoin="round" d="M12 8v4l3 3"></path></svg>
+              <span class="font-serif text-[15px]">60 minutes &middot; from </span>
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- Bridal Makeup Section -->
+  <section class="w-full bg-[#FDF9F2] py-24 md:py-32">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      
+      <div class="flex flex-col lg:flex-row gap-16 lg:gap-24">
+        
+        <!-- Left Column -->
+        <div class="w-full lg:w-1/2 flex flex-col">
+          <h2 class="font-serif text-[3.5rem] md:text-[4.5rem] text-[#38251E] leading-none tracking-tight mb-8">
+            Your day. Your face. Flawless for <span class="text-[#D0B286]">12 hours.</span>
+          </h2>
+          
+          <!-- Image composite container -->
+          <div class="relative w-full h-auto mt-8 flex justify-center items-center">
+            <!-- Using the exact composite cropped from the mockup -->
+            <img src="creative_composite.webp" alt="Creative Composite" class="w-[85%] md:w-[75%] max-w-[450px] h-auto object-contain mix-blend-multiply" />
+          </div>
+        </div>
+
+        <!-- Right Column -->
+        <div class="w-full lg:w-1/2 flex flex-col mt-12 lg:mt-0">
+          
+          <!-- Top Right Image -->
+          <div class="w-full h-[300px] md:h-[350px] rounded-tl-[100px] rounded-br-[100px] border-[1.5px] border-[#D0B286] overflow-hidden shadow-lg mb-12">
+            <img src="red_lips.webp" alt="Applying cream" class="w-full h-full object-cover" />
+          </div>
+
+          <h3 class="font-serif text-[3.5rem] text-[#38251E] leading-none tracking-tight mb-6">
+            Event makeup
+          </h3>
+          <p class="font-serif text-[#38251E]/90 text-[18px] leading-relaxed mb-8 max-w-md">
+            Our lead artists design a look around your outfit, your skin and the weather on the day.
+          </p>
+
+          <ul class="space-y-5 mb-10">
+            <li class="flex items-start gap-4">
+              <span class="w-1.5 h-1.5 bg-[#38251E] rounded-full mt-2.5 flex-shrink-0"></span>
+              <span class="font-serif text-[#38251E]/90 text-[16px] leading-relaxed">Trial session two weeks before the wedding</span>
+            </li>
+            <li class="flex items-start gap-4">
+              <span class="w-1.5 h-1.5 bg-[#38251E] rounded-full mt-2.5 flex-shrink-0"></span>
+              <span class="font-serif text-[#38251E]/90 text-[16px] leading-relaxed">Waterproof, humidity-proof base</span>
+            </li>
+            <li class="flex items-start gap-4">
+              <span class="w-1.5 h-1.5 bg-[#38251E] rounded-full mt-2.5 flex-shrink-0"></span>
+              <span class="font-serif text-[#38251E]/90 text-[16px] leading-relaxed">Travel to your venue within Tamil Nadu</span>
+            </li>
+            <li class="flex items-start gap-4">
+              <span class="w-1.5 h-1.5 bg-[#38251E] rounded-full mt-2.5 flex-shrink-0"></span>
+              <span class="font-serif text-[#38251E]/90 text-[16px] leading-relaxed">Touch-up kit for the day</span>
+            </li>
+          </ul>
+
+          <div>
+            <a href="#" class="inline-block bg-[#3F2B26] text-[#FDF9F2] px-8 py-3.5 rounded-lg font-sans text-[15px] font-medium tracking-wide hover:bg-[#2A1B15] transition-colors shadow-md">
+              Request a bridal slot
+            </a>
+          </div>
+
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- The People Behind The Products Section -->
+  <section class="w-full bg-[#FDF9F2] py-24 md:py-32">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      
+      <!-- Top Text Row -->
+      <div class="flex flex-col md:flex-row justify-between items-start md:items-end mb-20 md:mb-32">
+        <h2 class="font-serif text-[3.5rem] md:text-[4.5rem] text-[#38251E] leading-none tracking-tight mb-6 md:mb-0 max-w-2xl">
+          The people behind the <span class="text-[#D0B286]">products</span>
+        </h2>
+        <p class="font-serif text-[#38251E] text-lg md:text-[1.15rem] font-medium max-w-xs md:text-left pb-2">
+          A small team of formulators, makeup artists and skin nerds.
+        </p>
+      </div>
+
+      <!-- Team Grid -->
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-12 md:gap-6">
+        
+        <!-- Member 1 -->
+        <div class="flex flex-col items-center">
+          <div class="w-full max-w-[260px] md:max-w-full aspect-[2/3] rounded-[200px] border-[1.5px] border-[#D0B286] overflow-hidden shadow-md mb-8">
+            <img src="opt_2e2daebb.webp" alt="Kavya Raman" class="w-full h-full object-cover" />
+          </div>
+          <h3 class="font-serif text-[#38251E] text-3xl mb-2 text-center">Kavya Raman</h3>
+          <p class="font-serif text-[#38251E]/80 text-[15px] text-center">Founder and CEO</p>
+        </div>
+
+        <!-- Member 2 (Pushed down on desktop) -->
+        <div class="flex flex-col items-center lg:mt-24">
+          <div class="w-full max-w-[260px] md:max-w-full aspect-[2/3] rounded-[200px] border-[1.5px] border-[#D0B286] overflow-hidden shadow-md mb-8">
+            <img src="opt_2c92114b.webp" alt="Dr. Nisha Iyer" class="w-full h-full object-cover" />
+          </div>
+          <h3 class="font-serif text-[#38251E] text-3xl mb-2 text-center">Dr. Nisha Iyer</h3>
+          <p class="font-serif text-[#38251E]/80 text-[15px] text-center">Head of formulation</p>
+        </div>
+
+        <!-- Member 3 -->
+        <div class="flex flex-col items-center">
+          <div class="w-full max-w-[260px] md:max-w-full aspect-[2/3] rounded-[200px] border-[1.5px] border-[#D0B286] overflow-hidden shadow-md mb-8">
+            <img src="opt_b3d150b6.webp" alt="Arjun Menon" class="w-full h-full object-cover" />
+          </div>
+          <h3 class="font-serif text-[#38251E] text-3xl mb-2 text-center">Arjun Menon</h3>
+          <p class="font-serif text-[#38251E]/80 text-[15px] text-center">Colour and shade lead</p>
+        </div>
+
+        <!-- Member 4 (Pushed down on desktop) -->
+        <div class="flex flex-col items-center lg:mt-24">
+          <div class="w-full max-w-[260px] md:max-w-full aspect-[2/3] rounded-[200px] border-[1.5px] border-[#D0B286] overflow-hidden shadow-md mb-8">
+            <img src="opt_23356de8.webp" alt="Sana Fathima" class="w-full h-full object-cover" />
+          </div>
+          <h3 class="font-serif text-[#38251E] text-3xl mb-2 text-center">Sana Fathima</h3>
+          <p class="font-serif text-[#38251E]/80 text-[15px] text-center">Customer care manager</p>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA Section -->
+  <section class="w-full relative py-32 md:py-40 flex items-center justify-center overflow-hidden">
+    <!-- Gradient Background -->
+    <div class="absolute inset-0 bg-gradient-to-br from-[#3F2B26] via-[#614133] to-[#3F2B26] z-0"></div>
+    <!-- Soft warm glow -->
+    <div class="absolute inset-0 flex justify-center items-center z-0 opacity-40">
+      <div class="w-[600px] h-[300px] bg-[#D0B286] rounded-full blur-[120px]"></div>
+    </div>
+    
+    <div class="relative z-10 max-w-3xl mx-auto px-4 text-center flex flex-col items-center">
+      <h2 class="font-serif text-[3rem] md:text-[4rem] text-white leading-tight mb-6">
+        Come say hello
+      </h2>
+      <p class="font-serif text-white/90 text-[17px] md:text-[19px] leading-relaxed mb-12 max-w-xl">
+        Visit our studio in Madurai for a free shade match, or ask our team anything online.
+      </p>
+      
+      <div class="flex flex-col sm:flex-row items-center gap-6 sm:gap-8">
+        <a href="#" class="inline-block bg-[#D0B286] text-white px-8 py-3.5 rounded-lg font-sans text-[15px] font-medium tracking-wide hover:bg-[#B39366] transition-colors shadow-lg">
+          Book a service
+        </a>
+        <a href="#" class="font-serif text-white text-[16px] tracking-wide underline underline-offset-8 decoration-white/40 hover:decoration-white transition-all">
+          Book a shade match
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="w-full bg-[#C3A47C] pt-20 pb-16 mt-10">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="grid grid-cols-1 md:grid-cols-4 gap-12 md:gap-8">
+        
+        <!-- Column 1: Brand & Socials -->
+        <div class="flex flex-col pr-8">
+          <!-- Logo -->
+          <div class="flex-shrink-0 flex items-center mb-6">
+            <img src="logo_0027.webp" alt="Stackly Logo" class="h-12 w-auto object-contain" />
+          </div>
+          <p class="font-serif text-brand-text mb-8 leading-snug">
+            Modern luxury beauty, made with botanicals and a little gold.
+          </p>
+          <!-- Social Icons -->
+          <div class="flex space-x-3">
+            <!-- Google -->
+            <a href="#" class="w-10 h-10 rounded-xl bg-[#FDF9F2] flex items-center justify-center hover:bg-white transition-colors shadow-sm">
+              <img src="https://upload.wikimedia.org/wikipedia/commons/c/c1/Google_%22G%22_logo.svg" alt="Google" class="w-5 h-5"/>
+            </a>
+            <!-- Facebook -->
+            <a href="#" class="w-10 h-10 rounded-xl bg-[#FDF9F2] flex items-center justify-center hover:bg-white transition-colors shadow-sm">
+              <svg class="w-6 h-6 text-[#1877F2]" fill="currentColor" viewBox="0 0 24 24"><path d="M22.675 0h-21.35c-.732 0-1.325.593-1.325 1.325v21.351c0 .731.593 1.324 1.325 1.324h11.495v-9.294h-3.128v-3.622h3.128v-2.671c0-3.1 1.893-4.788 4.659-4.788 1.325 0 2.463.099 2.795.143v3.24l-1.918.001c-1.504 0-1.795.715-1.795 1.763v2.312h3.587l-.467 3.622h-3.12v9.293h6.116c.73 0 1.323-.593 1.323-1.325v-21.35c0-.732-.593-1.325-1.325-1.325z"/></svg>
+            </a>
+            <!-- Instagram -->
+            <a href="#" class="w-10 h-10 rounded-xl bg-[#FDF9F2] flex items-center justify-center hover:bg-white transition-colors shadow-sm overflow-hidden relative">
+               <img src="https://upload.wikimedia.org/wikipedia/commons/9/95/Instagram_logo_2022.svg" alt="Instagram" class="w-6 h-6 z-10"/>
+            </a>
+            <!-- X (Twitter) -->
+            <a href="#" class="w-10 h-10 rounded-xl bg-[#FDF9F2] flex items-center justify-center hover:bg-white transition-colors shadow-sm">
+              <svg class="w-5 h-5 text-black" fill="currentColor" viewBox="0 0 24 24"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+            </a>
+          </div>
+        </div>
+
+        <!-- Column 2: Links -->
+        <div class="flex flex-col">
+          <h3 class="font-serif text-[1.4rem] text-brand-text mb-6">Links</h3>
+          <ul class="space-y-3.5 font-serif text-[14px] text-brand-text/90">
+            <li><a href="index.html" class="hover:text-white transition-colors">Home</a></li>
+            <li><a href="services.html" class="hover:text-white transition-colors">Services</a></li>
+            <li><a href="blog.html" class="hover:text-white transition-colors">Blog</a></li>
+            <li><a href="about.html" class="hover:text-white transition-colors">About</a></li>
+            <li><a href="contact.html" class="hover:text-white transition-colors">Contact</a></li>
+          </ul>
+        </div>
+
+        <!-- Column 3: Help -->
+        <div class="flex flex-col">
+          <h3 class="font-serif text-[1.4rem] text-brand-text mb-6">Help</h3>
+          <ul class="space-y-3.5 font-serif text-[14px] text-brand-text/90">
+            <li><a href="#" class="hover:text-white transition-colors">Shipping</a></li>
+            <li><a href="#" class="hover:text-white transition-colors">Returns</a></li>
+            <li><a href="#" class="hover:text-white transition-colors">Skin consultation</a></li>
+            <li><a href="#" class="hover:text-white transition-colors">Gift cards</a></li>
+          </ul>
+        </div>
+
+        <!-- Column 4: Contact Us -->
+        <div class="flex flex-col">
+          <h3 class="font-serif text-[1.4rem] text-brand-text mb-6">Contact us</h3>
+          <div class="space-y-4 font-serif text-[14px] text-brand-text/90 leading-relaxed">
+            <p>
+              Evolve Studio, 4th Floor,<br/>
+              Khata No 10, Begur - Koppa Rd,<br/>
+              In front of SNN Raj Serenity,<br/>
+              Suraksha Nagar, Yelenahalli,<br/>
+              Begur, Bengaluru,<br/>
+              Karnataka -560068
+            </p>
+            <p><a href="mailto:info@stackly.com" class="hover:text-white transition-colors">info@stackly.com</a></p>
+            <p><a href="tel:+919876543210" class="hover:text-white transition-colors">+91 98765 43210</a></p>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+    <div class="mt-12 pt-6 pb-2 text-center text-[15px] text-[#FDF9F2]/80 font-sans border-t border-[#38251E]/10">
+      &copy; 2026 Stackly Beauty. All rights reserved.
+    </div>
+  </footer>
+
+
+  <!-- GSAP & ScrollTrigger -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+  <script src='main.js'></script>
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
