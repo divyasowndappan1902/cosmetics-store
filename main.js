@@ -85,7 +85,7 @@ document.addEventListener("click", (e) => {
     if (btn) {
         // Allow password visibility toggle and go back button
         const onclickAttr = btn.getAttribute("onclick") || "";
-        if (onclickAttr.includes("pwd") || onclickAttr.includes("togglePwd") || onclickAttr.includes("history") || btn.classList.contains("go-back-btn")) {
+        if (btn.id === "mobile-menu-toggle" || btn.id === "dashboard-menu-toggle" || onclickAttr.includes("pwd") || onclickAttr.includes("togglePwd") || onclickAttr.includes("history") || btn.classList.contains("go-back-btn")) {
             return;
         }
 
@@ -105,5 +105,42 @@ document.addEventListener("click", (e) => {
         // All other buttons are dummy buttons -> redirect to 404.html
         e.preventDefault();
         window.location.href = "404.html";
+    }
+});
+
+
+// Mobile Menu Toggle Logic
+document.addEventListener("DOMContentLoaded", () => {
+    const mobileMenuToggle = document.getElementById("mobile-menu-toggle");
+    const mobileMenu = document.getElementById("mobile-menu");
+    if (mobileMenuToggle && mobileMenu) {
+        mobileMenuToggle.addEventListener("click", (e) => {
+            e.preventDefault();
+            e.stopPropagation();
+            mobileMenu.classList.toggle("hidden");
+        });
+    }
+});
+
+
+// Dashboard Mobile Sidebar Toggle Logic
+document.addEventListener("DOMContentLoaded", () => {
+    const dashboardToggle = document.getElementById("dashboard-menu-toggle");
+    const dashboardSidebar = document.getElementById("dashboard-sidebar");
+    if (dashboardToggle && dashboardSidebar) {
+        dashboardToggle.addEventListener("click", (e) => {
+            e.preventDefault();
+            e.stopPropagation();
+            dashboardSidebar.classList.toggle("-translate-x-full");
+        });
+        
+        // Close sidebar when clicking outside on mobile
+        document.addEventListener("click", (e) => {
+            if (window.innerWidth < 768 && !dashboardSidebar.contains(e.target) && e.target !== dashboardToggle && !dashboardToggle.contains(e.target)) {
+                if (!dashboardSidebar.classList.contains("-translate-x-full")) {
+                    dashboardSidebar.classList.add("-translate-x-full");
+                }
+            }
+        });
     }
 });

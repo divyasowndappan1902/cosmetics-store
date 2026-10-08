@@ -397,3 +397,5 @@ nav.nav-hidden {
 .stackly-logo-wrap {
     animation: stacklyFloat 2.4s ease-in-out infinite, stacklyShine 2.4s ease-in-out infinite;
 }
+
+html, body { overflow-x: hidden !important; max-width: 100%; }
