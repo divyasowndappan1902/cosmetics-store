@@ -114,6 +114,9 @@
         .anim-dot-3 { animation: cosmetic-dot-float 3.3s ease-in-out infinite 1.4s; }
     </style>
     <link rel="stylesheet" href="premium-animations.css">
+    <!-- Font Awesome & Google Material Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons|Material+Symbols+Outlined" />
 </head>
 <body class="min-h-screen flex items-center justify-center p-6 relative overflow-hidden">
 
@@ -403,11 +406,12 @@
 
             <!-- Action Buttons -->
             <div class="flex flex-col sm:flex-row items-center justify-center gap-4">
-                <a href="index.html" class="w-full sm:w-auto bg-[#38302A] text-white px-8 py-3.5 rounded-full text-sm font-medium tracking-wide hover:bg-black transition-all shadow-md">
+                <a href="index.html" class="w-full sm:w-auto bg-[#38302A] text-white px-8 py-3.5 rounded-full text-sm font-medium tracking-wide hover:bg-black transition-all shadow-md flex items-center justify-center gap-2">
+                    <i class="fa-solid fa-house text-xs"></i>
                     Return to Home
                 </a>
                 <button type="button" onclick="if (window.history.length > 1) { window.history.back(); } else { window.location.href = 'index.html'; }" class="go-back-btn w-full sm:w-auto bg-transparent border border-[#38302A]/30 text-[#38302A] hover:border-[#38302A] px-8 py-3.5 rounded-full text-sm font-medium tracking-wide hover:bg-[#38302A]/5 transition-all cursor-pointer flex items-center justify-center gap-2">
-                    <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 19l-7-7m0 0l7-7m-7 7h18"></path></svg>
+                    <i class="fa-solid fa-arrow-left text-xs"></i>
                     Go Back
                 </button>
             </div>

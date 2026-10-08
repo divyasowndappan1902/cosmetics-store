@@ -19,6 +19,9 @@
     }
   </style>
     <link rel="stylesheet" href="premium-animations.css">
+    <!-- Font Awesome & Google Material Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons|Material+Symbols+Outlined" />
 </head>
 <body class="relative w-full min-h-screen font-sans antialiased flex flex-col">
 
@@ -217,8 +220,8 @@
           <label class="text-[#1A110D] text-[12px] font-medium ml-1">Password</label>
           <div class="relative">
             <input id="login-pwd" type="password" placeholder="Enter your password" class="w-full bg-white text-[#38251E] placeholder:text-[#38251E]/50 rounded-full px-5 py-3 pr-12 font-sans text-[13px] focus:outline-none focus:ring-2 focus:ring-white border-0 shadow-sm" required minlength="8" />
-            <button type="button" onclick="const i=document.getElementById('login-pwd');i.type=i.type==='password'?'text':'password'" class="absolute right-4 top-1/2 -translate-y-1/2 text-[#38251E]/50 hover:text-[#38251E]">
-              <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13.875 18.825A10.05 10.05 0 0112 19c-4.478 0-8.268-2.943-9.543-7a9.97 9.97 0 011.563-3.029m5.858.908a3 3 0 114.243 4.243M9.878 9.878l4.242 4.242M9.88 9.88l-3.29-3.29m7.532 7.532l3.29 3.29M3 3l3.59 3.59m0 0A9.953 9.953 0 0112 5c4.478 0 8.268 2.943 9.543 7a10.025 10.025 0 01-4.132 5.411m0 0L21 21"></path></svg>
+            <button type="button" onclick="const i=document.getElementById('login-pwd');const icon=document.getElementById('login-pwd-eye');if(i.type==='password'){i.type='text';icon.className='fa-solid fa-eye-slash text-sm text-[#38251E]';}else{i.type='password';icon.className='fa-solid fa-eye text-sm text-[#38251E]/50';}" class="absolute right-4 top-1/2 -translate-y-1/2 hover:text-[#38251E]">
+              <i class="fa-solid fa-eye text-sm text-[#38251E]/50" id="login-pwd-eye"></i>
             </button>
           </div>
           <div id="pwd-hint" class="text-[11px] ml-1 mt-0.5"></div>
@@ -244,11 +247,11 @@
         <div class="flex justify-center mb-4">
           <div class="bg-white rounded-full px-6 py-2.5 flex items-center justify-center gap-5 shadow-sm w-[170px]">
             <!-- Google -->
-            <a href="404.html" class="hover:scale-110 transition-transform"><svg class="w-[22px] h-[22px]" viewBox="0 0 24 24"><path fill="#4285F4" d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z"/><path fill="#34A853" d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z"/><path fill="#FBBC05" d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l2.85-2.22.81-.62z"/><path fill="#EA4335" d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z"/></svg></a>
+            <a href="404.html" class="hover:scale-110 transition-transform"><i class="fa-brands fa-google text-[#4285F4] text-xl"></i></a>
             <!-- Apple -->
-            <a href="404.html" class="hover:scale-110 transition-transform"><svg class="w-[22px] h-[22px]" viewBox="0 0 24 24" fill="black"><path d="M17.05 20.28c-.98.95-2.05.8-3.08.35-1.09-.46-2.09-.48-3.24 0-1.44.62-2.2.44-3.06-.35C2.79 15.25 3.51 7.59 9.05 7.31c1.35.05 2.26.45 3.09.45.81 0 2.23-.58 3.84-.44 1.34.05 2.3.49 3.01 1.05-2.58 1.56-2.14 4.88.58 6.04-.68 1.94-1.58 4.02-2.52 5.87zm-2.83-14.8c.18-1.89-1.34-3.55-3.23-3.66-.27 2.07 1.56 3.65 3.23 3.66z"/></svg></a>
+            <a href="404.html" class="hover:scale-110 transition-transform"><i class="fa-brands fa-apple text-black text-xl"></i></a>
             <!-- Facebook -->
-            <a href="404.html" class="hover:scale-110 transition-transform"><svg class="w-[22px] h-[22px]" viewBox="0 0 24 24" fill="#1877F2"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.469h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.469h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg></a>
+            <a href="404.html" class="hover:scale-110 transition-transform"><i class="fa-brands fa-facebook-f text-[#1877F2] text-xl"></i></a>
           </div>
         </div>
 
@@ -284,10 +287,10 @@
       const valid = /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(v);
       if (v === '') { emailHint.textContent = ''; return; }
       if (!valid) {
-        emailHint.textContent = '✗ Enter a valid email (e.g. name@example.com)';
+        emailHint.innerHTML = '<i class="fa-solid fa-circle-xmark mr-1"></i> Enter a valid email (e.g. name@example.com)';
         emailHint.style.color = '#e05252';
       } else {
-        emailHint.textContent = '✓ Valid email';
+        emailHint.innerHTML = '<i class="fa-solid fa-circle-check mr-1"></i> Valid email';
         emailHint.style.color = '#16a34a';
       }
     });
@@ -299,13 +302,13 @@
       const hasMin = v.length >= 8;
       const hasNum = /[0-9]/.test(v);
       if (!hasMin) {
-        pwdHint.textContent = `${8 - v.length} more character${8 - v.length !== 1 ? 's' : ''} needed`;
+        pwdHint.innerHTML = `<i class="fa-solid fa-circle-info mr-1"></i> ${8 - v.length} more character${8 - v.length !== 1 ? 's' : ''} needed`;
         pwdHint.style.color = '#e05252';
       } else if (!hasNum) {
-        pwdHint.textContent = 'Add at least one number';
+        pwdHint.innerHTML = '<i class="fa-solid fa-circle-info mr-1"></i> Add at least one number';
         pwdHint.style.color = '#d97706';
       } else {
-        pwdHint.textContent = '✓ Password looks good';
+        pwdHint.innerHTML = '<i class="fa-solid fa-circle-check mr-1"></i> Password looks good';
         pwdHint.style.color = '#16a34a';
       }
     });
@@ -320,14 +323,14 @@
 
       // Email check
       if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
-        emailHint.textContent = '✗ Please enter a valid email address.';
+        emailHint.innerHTML = '<i class="fa-solid fa-circle-xmark mr-1"></i> Please enter a valid email address.';
         emailHint.style.color = '#e05252';
         emailEl.focus();
         return;
       }
       // Password length
       if (pwd.length < 8) {
-        pwdHint.textContent = 'Password must be at least 8 characters.';
+        pwdHint.innerHTML = '<i class="fa-solid fa-circle-xmark mr-1"></i> Password must be at least 8 characters.';
         pwdHint.style.color = '#e05252';
         pwdEl.focus();
         return;
