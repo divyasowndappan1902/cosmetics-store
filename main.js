@@ -1,73 +1,109 @@
 // main.js - Core animations and interactions
 
+// 1. Luxury Cosmetics Preloader Dismissal
+function dismissPreloader() {
+    const preloader = document.getElementById("preloader");
+    if (!preloader || preloader.dataset.dismissed) return;
+    preloader.dataset.dismissed = "true";
+
+    if (window.gsap) {
+        gsap.to(preloader, {
+            opacity: 0,
+            duration: 0.55,
+            ease: "power2.inOut",
+            onComplete: () => {
+                preloader.remove();
+                if (window.ScrollTrigger) ScrollTrigger.refresh();
+            }
+        });
+    } else {
+        preloader.style.transition = "opacity 0.55s ease";
+        preloader.style.opacity = "0";
+        setTimeout(() => {
+            preloader.remove();
+        }, 550);
+    }
+}
+
+// Fallback safety timeout so user is never stuck
+setTimeout(dismissPreloader, 3500);
+
 window.addEventListener("load", () => {
     gsap.registerPlugin(ScrollTrigger);
     
-    // 1. Preloader Animation
-    const preloader = document.getElementById("preloader");
-    if (preloader) {
-        const tl = gsap.timeline();
-        tl.fromTo(".gsap-preloader-text", 
-          { y: 40, opacity: 0 }, 
-          { y: 0, opacity: 1, duration: 1, ease: "power3.out" }
-        )
-        .to("#preloader", {
-          opacity: 0,
-          duration: 0.8,
-          delay: 0.5,
-          ease: "power2.inOut",
-          onComplete: () => {
-            preloader.style.display = "none";
-            // Refresh ScrollTrigger after layout stabilizes
-            ScrollTrigger.refresh();
-          }
-        });
-    }
+    // Allow the luxury preloader animation to be clearly visible and enjoyed (~1.8s)
+    setTimeout(dismissPreloader, 1800);
 
     // 2. Headings Scroll Animation (Cosmetics style: elegant fade + slight upward drift)
     const headings = document.querySelectorAll("h1, h2, h3");
     headings.forEach((heading) => {
-      // Skip preloader heading
-      if(heading.classList.contains('gsap-preloader-text')) return;
+      // Skip headings inside preloader and smoky text
+      if (heading.closest('#preloader') || heading.classList.contains('gsap-preloader-text') || heading.classList.contains('smoky-text')) return;
       
-      gsap.from(heading, {
-        scrollTrigger: {
-          trigger: heading,
-          start: "top 90%",
-          toggleActions: "play none none reverse"
-        },
-        y: 40,
-        opacity: 0,
-        duration: 1.2,
-        ease: "power3.out"
-      });
-    });
-
-    // 3. Premium "What We Offer" Section Animation (Specific to Services page)
-    const offerSection = document.querySelector('.bg-\\[\\#FDF9F2\\].py-20.md\\:py-24'); // Target the section
-    const serviceCards = document.querySelectorAll('.service-card');
-    
-    if (offerSection && serviceCards.length > 0) {
-      const tl = gsap.timeline({
-        scrollTrigger: {
-          trigger: offerSection,
-          start: "top 80%",
-          toggleActions: "play none none reverse"
+      gsap.fromTo(heading, 
+        { y: 30, opacity: 0 },
+        {
+          y: 0,
+          opacity: 1,
+          duration: 1,
+          ease: "power3.out",
+          scrollTrigger: {
+            trigger: heading,
+            start: "top 95%",
+            once: true
+          }
         }
-      });
+      );
+    });
+});
 
-      const offerPara = offerSection.querySelector('p.max-w-2xl');
-      if (offerPara) {
-          tl.from(offerPara, { y: 20, opacity: 0, duration: 0.8, ease: "power2.out" }, "+=0.2");
-      }
+// 3. Global Handler: Redirect all dummy buttons and links to 404.html
+document.addEventListener("click", (e) => {
+    // Handle links
+    const link = e.target.closest("a");
+    if (link) {
+        // Keep functional dashboard tab switches and history back
+        if (link.hasAttribute("data-target") || link.classList.contains("nav-link") || link.classList.contains("go-back-btn")) {
+            return;
+        }
 
-      tl.from(serviceCards, {
-        y: 40,
-        opacity: 0,
-        scale: 0.98,
-        duration: 1,
-        stagger: 0.1,
-        ease: "power3.out"
-      }, "-=0.4");
+        const href = link.getAttribute("href") || "";
+        if (href.startsWith("javascript:history") || href.startsWith("javascript:window.history")) {
+            return;
+        }
+
+        if (href === "#" || href === "" || href === "javascript:void(0)" || href === "javascript:;") {
+            e.preventDefault();
+            window.location.href = "404.html";
+            return;
+        }
+        return;
+    }
+
+    // Handle buttons
+    const btn = e.target.closest("button");
+    if (btn) {
+        // Allow password visibility toggle and go back button
+        const onclickAttr = btn.getAttribute("onclick") || "";
+        if (onclickAttr.includes("pwd") || onclickAttr.includes("togglePwd") || onclickAttr.includes("history") || btn.classList.contains("go-back-btn")) {
+            return;
+        }
+
+        // Allow dashboard tabs if buttons are used
+        if (btn.hasAttribute("data-target") || btn.classList.contains("nav-link")) {
+            return;
+        }
+
+        // Allow form submission on real forms (contact, login, signup)
+        const form = btn.closest("form");
+        if (form && (form.id === "contact-form" || form.id === "login-form" || form.id === "signup-form")) {
+            if (btn.type === "submit" || btn.id === "contact-submit-btn") {
+                return;
+            }
+        }
+
+        // All other buttons are dummy buttons -> redirect to 404.html
+        e.preventDefault();
+        window.location.href = "404.html";
     }
 });

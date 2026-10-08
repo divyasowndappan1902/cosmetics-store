@@ -1,0 +1,399 @@
+/* premium-animations.css */
+
+/* Global Smooth Behavior */
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    /* Page Transition Base */
+    opacity: 0;
+    animation: fadeInPage 1s cubic-bezier(0.25, 1, 0.5, 1) forwards;
+}
+
+@keyframes fadeInPage {
+    from { opacity: 0; transform: translateY(10px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+/* Reduced Motion Respect */
+@media (prefers-reduced-motion: reduce) {
+    *, ::before, ::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+        scroll-behavior: auto !important;
+    }
+}
+
+/* Premium Easing Variables */
+:root {
+    --premium-ease: cubic-bezier(0.25, 1, 0.5, 1);
+    --hover-ease: cubic-bezier(0.33, 1, 0.68, 1);
+}
+
+/* Button Micro-interactions */
+button, .btn, a[href^="signup"], a[href^="login"], .cta-btn {
+    transition: transform 0.4s var(--hover-ease), box-shadow 0.4s var(--hover-ease), background-color 0.4s ease !important;
+    position: relative;
+    overflow: hidden;
+}
+
+button:hover, .btn:hover, a[href^="signup"]:hover, .cta-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 10px 20px -10px rgba(197, 154, 101, 0.4);
+}
+
+button:active, .btn:active, .cta-btn:active {
+    transform: translateY(1px);
+    transition: transform 0.1s;
+}
+
+/* Button Shine Effect */
+button::after, .btn::after, .cta-btn::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 50%;
+    height: 100%;
+    background: linear-gradient(to right, rgba(255,255,255,0) 0%, rgba(255,255,255,0.2) 50%, rgba(255,255,255,0) 100%);
+    transform: skewX(-25deg);
+    transition: left 0.7s var(--hover-ease);
+}
+
+button:hover::after, .btn:hover::after, .cta-btn:hover::after {
+    left: 150%;
+}
+
+/* Links / Animated Underlines */
+nav a:not([class*="bg-"]), .animated-underline {
+    position: relative;
+    text-decoration: none !important;
+}
+
+nav a:not([class*="bg-"])::after, .animated-underline::after {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 1px;
+    bottom: -2px;
+    left: 0;
+    background-color: currentColor;
+    transition: width 0.4s var(--premium-ease);
+}
+
+nav a:not([class*="bg-"]):hover::after, .animated-underline:hover::after {
+    width: 100%;
+}
+
+/* Image Zoom & Hover */
+.img-zoom-wrapper {
+    overflow: hidden;
+    position: relative;
+}
+
+.img-zoom-wrapper img {
+    transition: transform 1.2s var(--premium-ease);
+}
+
+.img-zoom-wrapper:hover img {
+    transform: scale(1.05);
+}
+
+/* Card Lift & Soft Shadow */
+.premium-card {
+    transition: transform 0.6s var(--premium-ease), box-shadow 0.6s var(--premium-ease);
+}
+
+.premium-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 15px 35px -10px rgba(197, 154, 101, 0.15) !important;
+}
+
+/* Input Focus Animation */
+input, textarea {
+    transition: border-color 0.4s ease, box-shadow 0.4s ease;
+}
+
+input:focus, textarea:focus {
+    box-shadow: 0 0 0 2px rgba(197, 154, 101, 0.2) !important;
+}
+
+/* Accordion FAQ */
+details {
+    overflow: hidden;
+    transition: max-height 0.5s var(--premium-ease);
+}
+
+details summary::-webkit-details-marker {
+    display: none;
+}
+
+details[open] summary ~ * {
+    animation: fadeInDown 0.5s var(--premium-ease) forwards;
+}
+
+@keyframes fadeInDown {
+    from { opacity: 0; transform: translateY(-10px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+/* Parallax Elements */
+.parallax-bg {
+    background-attachment: fixed;
+    background-position: center;
+    background-size: cover;
+}
+
+/* Navbar Scroll Transition */
+nav {
+    transition: padding 0.4s var(--premium-ease), background-color 0.4s var(--premium-ease), box-shadow 0.4s var(--premium-ease);
+}
+
+nav.scrolled {
+    padding-top: 1rem !important;
+    padding-bottom: 1rem !important;
+    background-color: rgba(244, 238, 229, 0.95);
+    backdrop-filter: blur(10px);
+    box-shadow: 0 4px 20px rgba(0,0,0,0.05);
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+}
+
+nav.nav-hidden {
+    transform: translateY(-100%);
+}
+
+/* Number Counter Font */
+.counter-num {
+    font-variant-numeric: tabular-nums;
+}
+
+/* Category Arrow Hover */
+.group:hover .group-hover\:translate-x-1 {
+    transform: translateX(4px);
+    transition: transform 0.4s var(--premium-ease);
+}
+
+/* Blog Category Animated Underline */
+.blog-category-filter {
+    position: relative;
+}
+.blog-category-filter::after {
+    content: '';
+    position: absolute;
+    bottom: 2px;
+    left: 10%;
+    width: 80%;
+    height: 1px;
+    background-color: currentColor;
+    transform: scaleX(0);
+    transition: transform 0.4s var(--premium-ease);
+}
+.blog-category-filter.active::after {
+    transform: scaleX(1);
+}
+
+/* Hover Icons */
+.grid > div:hover svg {
+    transform: scale(1.05) rotate(2deg);
+    transition: transform 0.4s var(--premium-ease);
+}
+
+/* Team Card Hover */
+.team-card img {
+    transition: filter 0.6s var(--premium-ease), transform 0.6s var(--premium-ease);
+}
+.team-card:hover img {
+    filter: grayscale(0%) !important;
+    transform: scale(1.05);
+}
+.team-card .info {
+    transition: transform 0.4s var(--premium-ease);
+}
+.team-card:hover .info {
+    transform: translateY(-5px);
+}
+.team-card .info p {
+    opacity: 0.7;
+    transition: opacity 0.4s var(--premium-ease);
+}
+.team-card:hover .info p {
+    opacity: 1;
+}
+
+/* Blog Hover Micro-interactions */
+.group h3 {
+    transition: transform 0.4s var(--premium-ease);
+}
+.group:hover h3 {
+    transform: translateY(-3px);
+}
+
+/* Global Float Animations */
+@keyframes premiumFloat {
+    0% { transform: translateY(0px); }
+    50% { transform: translateY(-20px); }
+    100% { transform: translateY(0px); }
+}
+@keyframes premiumFloatReverse {
+    0% { transform: translateY(0px); }
+    50% { transform: translateY(15px); }
+    100% { transform: translateY(0px); }
+}
+.animate-float { 
+    animation: premiumFloat 6s ease-in-out infinite; 
+}
+.animate-float-reverse { 
+    animation: premiumFloatReverse 7s ease-in-out infinite; 
+}
+.animate-float-slow { 
+    animation: premiumFloat 8s ease-in-out infinite; 
+}
+
+/* Marquee Animation for Reviews */
+@keyframes premiumMarquee {
+    0% { transform: translateX(0); }
+    100% { transform: translateX(-50%); }
+}
+
+.marquee-content {
+    animation: premiumMarquee 40s linear infinite;
+    padding-top: 2rem;
+    padding-bottom: 2rem;
+}
+
+.marquee-container:hover .marquee-content {
+    animation-play-state: paused;
+}
+
+/* Card Hover States */
+.marquee-content:hover .review-card {
+    opacity: 0.5;
+    transform: scale(0.95);
+}
+
+.marquee-content .review-card:hover {
+    opacity: 1;
+    transform: scale(1.05);
+    z-index: 20;
+    box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+}
+
+/* Stars fade in */
+@keyframes starFade {
+    0% { opacity: 0; transform: scale(0.5) rotate(-15deg); }
+    100% { opacity: 1; transform: scale(1) rotate(0deg); }
+}
+
+.review-card.stars-visible svg {
+    animation: starFade 0.8s var(--premium-ease) forwards;
+    opacity: 0;
+}
+
+.review-card.stars-visible svg:nth-child(1) { animation-delay: 0.1s; }
+.review-card.stars-visible svg:nth-child(2) { animation-delay: 0.2s; }
+.review-card.stars-visible svg:nth-child(3) { animation-delay: 0.3s; }
+.review-card.stars-visible svg:nth-child(4) { animation-delay: 0.4s; }
+.review-card.stars-visible svg:nth-child(5) { animation-delay: 0.5s; }
+
+/* --- LUXURY COSMETICS PRELOADER --- */
+@keyframes preFloat {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-5px); }
+}
+
+@keyframes preRotateRing {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+@keyframes preDropFall {
+    0% { transform: translateY(0) scale(0.6); opacity: 0; }
+    25% { opacity: 1; }
+    75% { transform: translateY(11px) scale(1); opacity: 0.9; }
+    100% { transform: translateY(14px) scale(0.2); opacity: 0; }
+}
+
+@keyframes preRippleWave {
+    0% { transform: scale(0.2); opacity: 0; }
+    35% { opacity: 0.8; }
+    100% { transform: scale(2.2); opacity: 0; }
+}
+
+@keyframes preAuraGlow {
+    0%, 100% { transform: scale(0.92); opacity: 0.35; }
+    50% { transform: scale(1.15); opacity: 0.75; }
+}
+
+@keyframes preSparkleTwinkle {
+    0%, 100% { transform: scale(0.3); opacity: 0.2; }
+    50% { transform: scale(1.15); opacity: 1; }
+}
+
+@keyframes preProgressBar {
+    0% { transform: translateX(-100%); width: 30%; }
+    50% { transform: translateX(30%); width: 70%; }
+    100% { transform: translateX(200%); width: 40%; }
+}
+
+.pre-bottle {
+    animation: preFloat 2.6s ease-in-out infinite;
+    transform-origin: center;
+}
+
+.pre-ring {
+    animation: preRotateRing 14s linear infinite;
+    transform-origin: center;
+}
+
+.pre-drop {
+    animation: preDropFall 1.8s ease-in infinite;
+    transform-origin: center;
+}
+
+.pre-ripple {
+    animation: preRippleWave 1.8s ease-out infinite;
+    transform-origin: center;
+}
+
+.pre-aura {
+    animation: preAuraGlow 2.4s ease-in-out infinite;
+    transform-origin: center;
+}
+
+.pre-sparkle-1 {
+    animation: preSparkleTwinkle 1.6s ease-in-out infinite;
+    transform-origin: center;
+}
+
+.pre-sparkle-2 {
+    animation: preSparkleTwinkle 2s ease-in-out infinite 0.6s;
+    transform-origin: center;
+}
+
+.pre-sparkle-3 {
+    animation: preSparkleTwinkle 1.8s ease-in-out infinite 1s;
+    transform-origin: center;
+}
+
+.pre-progress-bar {
+    animation: preProgressBar 1.8s cubic-bezier(0.4, 0, 0.2, 1) infinite;
+}
+
+@keyframes stacklyFloat {
+    0%, 100% { transform: translateY(0) scale(1); }
+    50% { transform: translateY(-4px) scale(1.02); }
+}
+
+@keyframes stacklyShine {
+    0% { filter: brightness(1) drop-shadow(0 2px 4px rgba(56, 37, 30, 0.05)); }
+    50% { filter: brightness(1.15) drop-shadow(0 6px 18px rgba(197, 154, 101, 0.4)); }
+    100% { filter: brightness(1) drop-shadow(0 2px 4px rgba(56, 37, 30, 0.05)); }
+}
+
+.stackly-logo-wrap {
+    animation: stacklyFloat 2.4s ease-in-out infinite, stacklyShine 2.4s ease-in-out infinite;
+}

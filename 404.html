@@ -1,26 +1,121 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Signup - Maison Rosée</title>
-  <script src="https://cdn.tailwindcss.com"></script>
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Playfair+Display:ital,wght@0,400;0,500;0,600;1,400&display=swap" rel="stylesheet">
-  <script src="tailwind-config.js"></script>
-  <style>
-    .glass-card {
-      background: rgba(255, 255, 255, 0.85);
-      backdrop-filter: blur(20px);
-      -webkit-backdrop-filter: blur(20px);
-      border: 1px solid rgba(255, 255, 255, 0.95);
-      box-shadow: 0 25px 50px -12px rgba(56, 37, 30, 0.16), 0 0 0 1px rgba(197, 154, 101, 0.15);
-    }
-  </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>404 - Page Not Found | Stackly</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;1,400&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #f4eee5;
+            color: #1F1C18;
+            overflow-x: hidden;
+        }
+        .font-serif {
+            font-family: 'Playfair Display', serif;
+        }
+        .glass-card {
+            background: rgba(255, 255, 255, 0.45);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.6);
+            box-shadow: 0 20px 40px rgba(56, 37, 30, 0.06);
+        }
+
+        /* Cosmetics SVG Animations */
+        @keyframes cosmetic-float-1 {
+            0%, 100% { transform: translateY(0px) rotate(0deg); }
+            50% { transform: translateY(-7px) rotate(-1.5deg); }
+        }
+        @keyframes cosmetic-float-2 {
+            0%, 100% { transform: translateY(0px) rotate(0deg); }
+            50% { transform: translateY(-9px) rotate(1.5deg); }
+        }
+        @keyframes cosmetic-sway-left {
+            0%, 100% { transform: rotate(0deg); }
+            50% { transform: rotate(-3deg); }
+        }
+        @keyframes cosmetic-sway-right {
+            0%, 100% { transform: rotate(0deg); }
+            50% { transform: rotate(3deg); }
+        }
+        @keyframes cosmetic-aura-pulse {
+            0%, 100% { transform: scale(1); opacity: 0.5; }
+            50% { transform: scale(1.15); opacity: 0.85; }
+        }
+        @keyframes cosmetic-drop {
+            0% { transform: translateY(0) scale(0.6); opacity: 0; }
+            25% { transform: translateY(4px) scale(1); opacity: 1; }
+            75% { transform: translateY(16px) scale(1.05); opacity: 1; }
+            100% { transform: translateY(22px) scale(0.3); opacity: 0; }
+        }
+        @keyframes cosmetic-ripple {
+            0%, 65% { transform: scale(0.2); opacity: 0; }
+            75% { opacity: 0.9; }
+            100% { transform: scale(1.5); opacity: 0; }
+        }
+        @keyframes cosmetic-sparkle {
+            0%, 100% { transform: scale(0.6) rotate(0deg); opacity: 0.3; }
+            50% { transform: scale(1.2) rotate(45deg); opacity: 1; }
+        }
+        @keyframes cosmetic-sparkle-alt {
+            0%, 100% { transform: scale(1.2) rotate(45deg); opacity: 1; }
+            50% { transform: scale(0.5) rotate(0deg); opacity: 0.25; }
+        }
+        @keyframes cosmetic-dot-float {
+            0%, 100% { transform: translateY(0px); opacity: 0.3; }
+            50% { transform: translateY(-6px); opacity: 0.9; }
+        }
+
+        .anim-bottle {
+            animation: cosmetic-float-1 4.5s ease-in-out infinite;
+            transform-origin: 80px 148px;
+        }
+        .anim-lipstick {
+            animation: cosmetic-float-2 4s ease-in-out infinite 0.4s;
+            transform-origin: 128px 148px;
+        }
+        .anim-leaf-left {
+            animation: cosmetic-sway-left 5s ease-in-out infinite;
+            transform-origin: 52px 110px;
+        }
+        .anim-leaf-right {
+            animation: cosmetic-sway-right 5.2s ease-in-out infinite 0.3s;
+            transform-origin: 148px 112px;
+        }
+        .anim-aura {
+            animation: cosmetic-aura-pulse 4s ease-in-out infinite;
+            transform-origin: 100px 95px;
+        }
+        .anim-drop {
+            animation: cosmetic-drop 2.6s cubic-bezier(0.5, 0, 0.75, 0) infinite;
+            transform-origin: 80px 148px;
+        }
+        .anim-ripple {
+            animation: cosmetic-ripple 2.6s cubic-bezier(0.2, 0.8, 0.4, 1) infinite;
+            transform-origin: 80px 162px;
+        }
+        .anim-sparkle-1 {
+            animation: cosmetic-sparkle 2.8s ease-in-out infinite;
+            transform-origin: 42px 48px;
+        }
+        .anim-sparkle-2 {
+            animation: cosmetic-sparkle-alt 3.2s ease-in-out infinite 0.5s;
+            transform-origin: 154px 56px;
+        }
+        .anim-sparkle-3 {
+            animation: cosmetic-sparkle 2.4s ease-in-out infinite 1s;
+            transform-origin: 104px 32px;
+        }
+        .anim-dot-1 { animation: cosmetic-dot-float 3s ease-in-out infinite; }
+        .anim-dot-2 { animation: cosmetic-dot-float 2.7s ease-in-out infinite 0.8s; }
+        .anim-dot-3 { animation: cosmetic-dot-float 3.3s ease-in-out infinite 1.4s; }
+    </style>
     <link rel="stylesheet" href="premium-animations.css">
 </head>
-<body class="relative w-full min-h-screen font-sans antialiased flex flex-col">
+<body class="min-h-screen flex items-center justify-center p-6 relative overflow-hidden">
 
   <!-- Luxury Stackly Preloader -->
   <div id="preloader" style="position: fixed; top: 0; left: 0; width: 100vw; height: 100vh; z-index: 9999999; background-color: #FDF9F2; display: flex; flex-direction: column; align-items: center; justify-content: center; user-select: none;">
@@ -151,205 +246,178 @@
   </div>
 
 
-  <!-- Full Screen Background Image -->
-  <div class="fixed inset-0 w-full h-full z-0">
-    <img src="makeup_bg.webp" alt="Makeup Background" class="w-full h-full object-cover" />
-    <div class="absolute inset-0 bg-gradient-to-b from-[#FDF9F2]/80 via-[#FDF9F2]/65 to-[#FDF9F2]/85"></div>
-  </div>
+  <!-- Soft decorative background glow -->
+    <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-[#EED8B6]/35 rounded-full blur-[120px] pointer-events-none -z-10"></div>
 
-  <!-- Top Navigation (Absolute) -->
-  <nav class="absolute top-0 left-0 w-full p-6 lg:p-10 z-20 flex justify-between items-center">
-    <!-- Logo -->
-        <div class="flex items-center cursor-pointer">
-            <a href="index.html">
-                <img src="logo_0027.webp" alt="Stackly Logo" class="h-10 md:h-12 w-auto object-contain" />
-            </a>
+    <!-- Main 404 Content -->
+    <main class="w-full max-w-2xl relative z-10 my-auto">
+        <div class="w-full text-center glass-card rounded-[32px] p-8 md:p-14 relative shadow-xl">
+            <!-- Brand Logo -->
+            <div class="flex justify-center mb-4">
+                <a href="index.html">
+                    <img src="logo_0027.webp" alt="Stackly Logo" class="h-10 md:h-12 w-auto object-contain mx-auto" />
+                </a>
+            </div>
+
+            <!-- Animated Cosmetics Illustration -->
+            <div class="relative w-48 h-44 mx-auto mb-2 flex items-center justify-center">
+                <svg class="w-full h-full select-none" viewBox="0 0 200 180" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <defs>
+                        <linearGradient id="goldCap" x1="0%" y1="0%" x2="100%" y2="100%">
+                            <stop offset="0%" stop-color="#E8D1A7"/>
+                            <stop offset="50%" stop-color="#C59A65"/>
+                            <stop offset="100%" stop-color="#9C7540"/>
+                        </linearGradient>
+                        <linearGradient id="bottleGlass" x1="0%" y1="0%" x2="100%" y2="0%">
+                            <stop offset="0%" stop-color="rgba(255,255,255,0.85)"/>
+                            <stop offset="25%" stop-color="rgba(253,249,242,0.6)"/>
+                            <stop offset="70%" stop-color="rgba(238,216,182,0.75)"/>
+                            <stop offset="100%" stop-color="rgba(197,154,101,0.5)"/>
+                        </linearGradient>
+                        <linearGradient id="serumLiquid" x1="0%" y1="0%" x2="0%" y2="100%">
+                            <stop offset="0%" stop-color="#EED8B6"/>
+                            <stop offset="100%" stop-color="#C59A65"/>
+                        </linearGradient>
+                        <linearGradient id="lipstickColor" x1="0%" y1="0%" x2="100%" y2="100%">
+                            <stop offset="0%" stop-color="#D96B6B"/>
+                            <stop offset="60%" stop-color="#A84444"/>
+                            <stop offset="100%" stop-color="#732323"/>
+                        </linearGradient>
+                        <linearGradient id="caseColor" x1="0%" y1="0%" x2="100%" y2="0%">
+                            <stop offset="0%" stop-color="#4A342B"/>
+                            <stop offset="50%" stop-color="#2D1F1A"/>
+                            <stop offset="100%" stop-color="#4A342B"/>
+                        </linearGradient>
+                        <radialGradient id="auraGlow" cx="50%" cy="50%" r="50%">
+                            <stop offset="0%" stop-color="#C59A65" stop-opacity="0.35"/>
+                            <stop offset="100%" stop-color="#C59A65" stop-opacity="0"/>
+                        </radialGradient>
+                        <filter id="softGlow" x="-20%" y="-20%" width="140%" height="140%">
+                            <feGaussianBlur stdDeviation="3" result="blur"/>
+                            <feComposite in="SourceGraphic" in2="blur" operator="over"/>
+                        </filter>
+                    </defs>
+
+                    <!-- Background Aura Glow (Pulsing) -->
+                    <circle cx="100" cy="95" r="65" fill="url(#auraGlow)" class="anim-aura" />
+
+                    <!-- Botanical Leaves in Background -->
+                    <g class="anim-leaf-left" opacity="0.8">
+                        <path d="M52 110 C40 88 50 68 70 65 C68 85 62 102 52 110 Z" fill="#9BA88D" />
+                        <path d="M52 110 C58 92 65 78 70 65" stroke="#7A876D" stroke-width="1.2" stroke-linecap="round"/>
+                    </g>
+                    <g class="anim-leaf-right" opacity="0.8">
+                        <path d="M148 112 C160 90 150 70 130 68 C132 88 138 104 148 112 Z" fill="#9BA88D" />
+                        <path d="M148 112 C142 94 135 80 130 68" stroke="#7A876D" stroke-width="1.2" stroke-linecap="round"/>
+                    </g>
+
+                    <!-- Serum Bottle & Pipette (Main Center Left) -->
+                    <g class="anim-bottle">
+                        <!-- Shadow under bottle -->
+                        <ellipse cx="80" cy="148" rx="28" ry="6" fill="#38251E" opacity="0.15" />
+
+                        <!-- Bottle Body -->
+                        <rect x="58" y="72" width="44" height="68" rx="14" fill="url(#bottleGlass)" stroke="#C59A65" stroke-width="1.5" />
+                        
+                        <!-- Serum Liquid inside -->
+                        <rect x="62" y="90" width="36" height="46" rx="8" fill="url(#serumLiquid)" opacity="0.85" />
+                        <!-- Liquid surface shine -->
+                        <path d="M62 94 Q80 90 98 94 L98 90 Q80 86 62 90 Z" fill="#FFF5E6" opacity="0.7"/>
+
+                        <!-- Pipette tube inside bottle -->
+                        <line x1="80" y1="58" x2="80" y2="120" stroke="rgba(255,255,255,0.7)" stroke-width="3" stroke-linecap="round"/>
+
+                        <!-- Gold Collar / Neck -->
+                        <rect x="70" y="58" width="20" height="14" rx="2" fill="url(#goldCap)" stroke="#8A6432" stroke-width="0.75" />
+                        
+                        <!-- Dropper Bulb (Rubber Top) -->
+                        <path d="M72 58 C72 46 75 42 80 42 C85 42 88 46 88 58 Z" fill="#38251E" />
+                        <ellipse cx="80" cy="42" rx="4" ry="2" fill="#523930" />
+
+                        <!-- Glass Reflection Streak -->
+                        <path d="M63 78 L63 134" stroke="rgba(255,255,255,0.75)" stroke-width="2.5" stroke-linecap="round" />
+                        <path d="M68 80 L68 110" stroke="rgba(255,255,255,0.4)" stroke-width="1.5" stroke-linecap="round" />
+                    </g>
+
+                    <!-- Luxury Lipstick (Right Side) -->
+                    <g class="anim-lipstick">
+                        <!-- Lipstick Shadow -->
+                        <ellipse cx="128" cy="148" rx="16" ry="5" fill="#38251E" opacity="0.15" />
+
+                        <!-- Lower Base Case -->
+                        <rect x="116" y="100" width="24" height="46" rx="5" fill="url(#caseColor)" stroke="#1F1511" stroke-width="1" />
+                        <!-- Gold Middle Ring -->
+                        <rect x="115" y="95" width="26" height="6" rx="1.5" fill="url(#goldCap)" stroke="#8A6432" stroke-width="0.5" />
+
+                        <!-- Inner Gold Barrel -->
+                        <rect x="119" y="80" width="18" height="16" fill="url(#goldCap)" />
+
+                        <!-- Lipstick Bullet (Beveled Tip) -->
+                        <path d="M120 80 L120 62 C120 54 125 50 131 46 C135 50 136 56 136 80 Z" fill="url(#lipstickColor)" stroke="#5E1C1C" stroke-width="0.75" />
+                        <!-- Bullet highlight -->
+                        <path d="M123 76 L123 60 C123 57 125 54 128 51" stroke="rgba(255,255,255,0.5)" stroke-width="1.5" stroke-linecap="round" />
+                        <!-- Case Highlight -->
+                        <line x1="119" y1="102" x2="119" y2="142" stroke="rgba(255,255,255,0.2)" stroke-width="1.5" stroke-linecap="round"/>
+                    </g>
+
+                    <!-- Animated Serum Droplet (Dripping gently) -->
+                    <g class="anim-droplet-group">
+                        <path d="M80 148 C78 152 76 156 80 160 C84 156 82 152 80 148 Z" fill="#C59A65" filter="url(#softGlow)" class="anim-drop" />
+                        <ellipse cx="80" cy="162" rx="10" ry="3" fill="none" stroke="#C59A65" stroke-width="1.5" class="anim-ripple" />
+                    </g>
+
+                    <!-- Sparkles & Shimmer Stars -->
+                    <g class="anim-sparkle-1" transform="translate(42, 48)">
+                        <path d="M0 -7 Q0 0 7 0 Q0 0 0 7 Q0 0 -7 0 Q0 0 0 -7 Z" fill="#C59A65" />
+                    </g>
+                    <g class="anim-sparkle-2" transform="translate(154, 56)">
+                        <path d="M0 -6 Q0 0 6 0 Q0 0 0 6 Q0 0 -6 0 Q0 0 0 -6 Z" fill="#E8D1A7" />
+                    </g>
+                    <g class="anim-sparkle-3" transform="translate(104, 32)">
+                        <path d="M0 -8 Q0 0 8 0 Q0 0 0 8 Q0 0 -8 0 Q0 0 0 -8 Z" fill="#C59A65" />
+                    </g>
+                    <!-- Small Shimmer Dots -->
+                    <circle cx="56" cy="38" r="1.8" fill="#C59A65" class="anim-dot-1" />
+                    <circle cx="142" cy="38" r="1.5" fill="#E8D1A7" class="anim-dot-2" />
+                    <circle cx="112" cy="148" r="1.5" fill="#C59A65" class="anim-dot-3" />
+                </svg>
+            </div>
+
+            <!-- 404 Accent Number -->
+            <div class="relative inline-block mb-2">
+                <span class="font-serif text-[6.5rem] md:text-[8.5rem] font-medium leading-none text-[#C59A65] tracking-tight select-none">
+                    404
+                </span>
+                <span class="absolute top-2 right-0 transform translate-x-3 -translate-y-2 bg-[#38302A] text-white text-[11px] font-sans uppercase tracking-widest px-3 py-1 rounded-full shadow-sm">
+                    Lost Page
+                </span>
+            </div>
+
+            <!-- Title & Description -->
+            <h1 class="font-serif text-[2.2rem] md:text-[3rem] text-[#1F1C18] leading-tight mb-4">
+                Page Not Found
+            </h1>
+            <p class="font-serif text-[#1F1C18]/80 text-[15px] md:text-[17px] leading-relaxed max-w-lg mx-auto mb-10">
+                The ritual or beauty page you are looking for doesn't exist, has been relocated, or is momentarily unavailable.
+            </p>
+
+            <!-- Action Buttons -->
+            <div class="flex flex-col sm:flex-row items-center justify-center gap-4">
+                <a href="index.html" class="w-full sm:w-auto bg-[#38302A] text-white px-8 py-3.5 rounded-full text-sm font-medium tracking-wide hover:bg-black transition-all shadow-md">
+                    Return to Home
+                </a>
+                <button type="button" onclick="if (window.history.length > 1) { window.history.back(); } else { window.location.href = 'index.html'; }" class="go-back-btn w-full sm:w-auto bg-transparent border border-[#38302A]/30 text-[#38302A] hover:border-[#38302A] px-8 py-3.5 rounded-full text-sm font-medium tracking-wide hover:bg-[#38302A]/5 transition-all cursor-pointer flex items-center justify-center gap-2">
+                    <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 19l-7-7m0 0l7-7m-7 7h18"></path></svg>
+                    Go Back
+                </button>
+            </div>
         </div>
-    
-    <!-- Back to home -->
-    <a href="index.html" class="bg-[#3F2B26] text-white px-6 py-2.5 rounded-lg text-[13px] font-sans hover:bg-[#2A1B15] transition-colors shadow-sm">
-      Back to home
-    </a>
-  </nav>
+    </main>
 
-  <!-- Main Content -->
-  <main class="relative z-10 flex-grow flex flex-col items-center justify-center px-4 py-20 lg:pt-28">
-    
-    <!-- Header Text -->
-    <div class="text-center mb-8 w-full max-w-2xl px-4">
-      <h1 class="font-serif text-[3.5rem] md:text-[4.5rem] leading-[1.1] text-[#1A110D] tracking-tight mb-3">
-        Create your own <span class="text-[#C59A65]">account</span>
-      </h1>
-      <p class="font-serif text-[#38251E]/90 text-[15px] md:text-[17px] leading-[1.6] mx-auto max-w-md font-medium">
-        Join Maison Ros&eacute;e to curate your personal beauty rituals and receive exclusive offerings.
-      </p>
-    </div>
-
-    <!-- Glassmorphism Login Card -->
-    <div class="glass-card w-full max-w-[440px] rounded-[32px] p-8 md:p-10">
-      <h2 class="font-serif text-center text-[2.25rem] text-[#1A110D] mb-6">Signup</h2>
-      
-      <form id="signup-form" action="customer_dashboard.html" class="space-y-4">
-        
-                <!-- Unique Role Selection -->
-        <div class="flex w-full bg-white/50 backdrop-blur-md rounded-full p-1.5 mb-5 shadow-inner border border-white/60 relative">
-          <!-- Slider -->
-          <div class="absolute top-1.5 left-1.5 bottom-1.5 w-[calc(50%-6px)] bg-[#3F2B26] rounded-full z-0 transition-all duration-300 ease-out shadow-sm" id="role-slider"></div>
-          
-          <label class="flex-1 text-center py-2 text-[13px] font-medium font-sans cursor-pointer relative z-10 transition-colors text-white" id="label-customer" onclick="document.getElementById('role-slider').style.transform = 'translateX(0)'; this.style.color='white'; document.getElementById('label-admin').style.color='#38251E'; document.getElementById('signup-form').action='customer_dashboard.html'">
-            <input type="radio" name="role" value="customer" class="hidden" checked>
-            Customer
-          </label>
-          
-          <label class="flex-1 text-center py-2 text-[13px] font-medium font-sans cursor-pointer relative z-10 transition-colors text-[#38251E]" id="label-admin" onclick="document.getElementById('role-slider').style.transform = 'translateX(100%)'; this.style.color='white'; document.getElementById('label-customer').style.color='#38251E'; document.getElementById('signup-form').action='admin_dashboard.html'">
-            <input type="radio" name="role" value="admin" class="hidden">
-            Admin
-          </label>
-        </div>
-
-        <div class="flex flex-col gap-1.5">
-          <label class="text-[#1A110D] text-[12px] font-medium ml-1">Name</label>
-          <input type="text" placeholder="Enter your name" class="w-full bg-white text-[#38251E] placeholder:text-[#38251E]/50 rounded-full px-5 py-3 font-sans text-[13px] focus:outline-none focus:ring-2 focus:ring-white border-0 shadow-sm" />
-        </div>
-
-        <div class="flex flex-col gap-1.5">
-          <label class="text-[#1A110D] text-[12px] font-medium ml-1">Email</label>
-          <input id="signup-email" type="email" placeholder="Enter your Email" class="w-full bg-white text-[#38251E] placeholder:text-[#38251E]/50 rounded-full px-5 py-3 font-sans text-[13px] focus:outline-none focus:ring-2 focus:ring-white border-0 shadow-sm" required pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$" title="Please enter a valid email address." />
-        </div>
-
-        <div class="flex flex-col gap-1.5">
-          <label class="text-[#1A110D] text-[12px] font-medium ml-1">Password</label>
-          <div class="relative">
-            <input id="signup-pwd" type="password" placeholder="Enter your password" class="w-full bg-white text-[#38251E] placeholder:text-[#38251E]/50 rounded-full px-5 py-3 font-sans text-[13px] focus:outline-none focus:ring-2 focus:ring-white border-0 shadow-sm" required minlength="8" />
-            <button type="button" onclick="togglePwd('signup-pwd',this)" class="absolute right-4 top-1/2 -translate-y-1/2 text-[#38251E]/50 hover:text-[#38251E]">
-              <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13.875 18.825A10.05 10.05 0 0112 19c-4.478 0-8.268-2.943-9.543-7a9.97 9.97 0 011.563-3.029m5.858.908a3 3 0 114.243 4.243M9.878 9.878l4.242 4.242M9.88 9.88l-3.29-3.29m7.532 7.532l3.29 3.29M3 3l3.59 3.59m0 0A9.953 9.953 0 0112 5c4.478 0 8.268 2.943 9.543 7a10.025 10.025 0 01-4.132 5.411m0 0L21 21"></path></svg>
-            </button>
-          </div>
-          <!-- Live password strength -->
-          <div id="pwd-hint" class="text-[11px] ml-1 mt-1 text-[#38251E]/60"></div>
-        </div>
-
-        <div class="flex flex-col gap-1.5">
-          <label class="text-[#1A110D] text-[12px] font-medium ml-1">Re-enter Password</label>
-          <div class="relative">
-            <input id="signup-pwd2" type="password" placeholder="Enter your Re-enter password" class="w-full bg-white text-[#38251E] placeholder:text-[#38251E]/50 rounded-full px-5 py-3 font-sans text-[13px] focus:outline-none focus:ring-2 focus:ring-white border-0 shadow-sm" />
-            <button type="button" onclick="togglePwd('signup-pwd2',this)" class="absolute right-4 top-1/2 -translate-y-1/2 text-[#38251E]/50 hover:text-[#38251E]">
-              <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13.875 18.825A10.05 10.05 0 0112 19c-4.478 0-8.268-2.943-9.543-7a9.97 9.97 0 011.563-3.029m5.858.908a3 3 0 114.243 4.243M9.878 9.878l4.242 4.242M9.88 9.88l-3.29-3.29m7.532 7.532l3.29 3.29M3 3l3.59 3.59m0 0A9.953 9.953 0 0112 5c4.478 0 8.268 2.943 9.543 7a10.025 10.025 0 01-4.132 5.411m0 0L21 21"></path></svg>
-            </button>
-          </div>
-          <div id="pwd-match" class="text-[11px] ml-1 mt-0.5"></div>
-        </div>
-
-        <button type="submit" class="w-full bg-[#3F2B26] text-white py-3.5 mt-2 rounded-full font-serif text-[16px] tracking-wide hover:bg-[#2A1B15] transition-colors shadow-md">
-          Signup
-        </button>
-
-        <div class="text-center pt-2 pb-2">
-          <p class="text-white md:text-[#1A110D] text-[13px] font-sans">
-            I have account <a href="login.html" class="text-[#3F2B26] font-semibold hover:underline ml-0.5">Login</a>
-          </p>
-        </div>
-
-        <!-- Social Buttons -->
-        <div class="flex justify-center pb-2">
-          <div class="bg-white rounded-full px-6 py-2.5 flex items-center justify-center gap-5 shadow-sm w-[170px]">
-            <!-- Google -->
-            <a href="404.html" class="hover:scale-110 transition-transform"><svg class="w-[20px] h-[20px]" viewBox="0 0 24 24"><path fill="#4285F4" d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z"/><path fill="#34A853" d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z"/><path fill="#FBBC05" d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l2.85-2.22.81-.62z"/><path fill="#EA4335" d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z"/></svg></a>
-            <!-- Apple -->
-            <a href="404.html" class="hover:scale-110 transition-transform"><svg class="w-[20px] h-[20px]" viewBox="0 0 24 24" fill="black"><path d="M17.05 20.28c-.98.95-2.05.8-3.08.35-1.09-.46-2.09-.48-3.24 0-1.44.62-2.2.44-3.06-.35C2.79 15.25 3.51 7.59 9.05 7.31c1.35.05 2.26.45 3.09.45.81 0 2.23-.58 3.84-.44 1.34.05 2.3.49 3.01 1.05-2.58 1.56-2.14 4.88.58 6.04-.68 1.94-1.58 4.02-2.52 5.87zm-2.83-14.8c.18-1.89-1.34-3.55-3.23-3.66-.27 2.07 1.56 3.65 3.23 3.66z"/></svg></a>
-            <!-- Facebook -->
-            <a href="404.html" class="hover:scale-110 transition-transform"><svg class="w-[20px] h-[20px]" viewBox="0 0 24 24" fill="#1877F2"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.469h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.469h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg></a>
-          </div>
-        </div>
-
-      </form>
-    </div>
-
-  </main>
-
-
-
-  <!-- GSAP & ScrollTrigger -->
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
-  <script src='main.js'></script>
+    <!-- GSAP & Animations -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+    <script src="main.js"></script>
     <script src="premium-animations.js"></script>
-
-  <!-- signup validation + dynamic email + redirect -->
-  <script>
-    // Toggle password visibility
-    function togglePwd(id, btn) {
-      const inp = document.getElementById(id);
-      inp.type = inp.type === 'password' ? 'text' : 'password';
-    }
-
-    const pwd   = document.getElementById('signup-pwd');
-    const pwd2  = document.getElementById('signup-pwd2');
-    const hint  = document.getElementById('pwd-hint');
-    const match = document.getElementById('pwd-match');
-
-    // Live password strength feedback — 8 char minimum only
-    pwd.addEventListener('input', () => {
-      const v = pwd.value;
-      if (v === '') { hint.textContent = ''; return; }
-      const hasMin = v.length >= 8;
-      if (!hasMin) {
-        hint.textContent = `${8 - v.length} more character${8 - v.length !== 1 ? 's' : ''} needed`;
-        hint.style.color = '#e05252';
-      } else {
-        hint.textContent = '✓ Password is strong enough';
-        hint.style.color = '#16a34a';
-      }
-      // also recheck match
-      if (pwd2.value) checkMatch();
-    });
-
-    // Live confirm password match
-    pwd2.addEventListener('input', checkMatch);
-    function checkMatch() {
-      if (pwd2.value === '') { match.textContent = ''; return; }
-      if (pwd.value === pwd2.value) {
-        match.textContent = '✓ Passwords match';
-        match.style.color = '#16a34a';
-      } else {
-        match.textContent = '✗ Passwords do not match';
-        match.style.color = '#e05252';
-      }
-    }
-
-    // Form submit — save email & redirect to correct dashboard
-    document.getElementById('signup-form').addEventListener('submit', function(e) {
-      e.preventDefault();
-
-      const email = document.getElementById('signup-email').value.trim();
-      const p1    = pwd.value;
-      const p2    = pwd2.value;
-      const role  = document.querySelector('input[name="role"]:checked')?.value || 'customer';
-
-      // Validate password length
-      if (p1.length < 8) {
-        hint.textContent = 'Password must be at least 8 characters.';
-        hint.style.color = '#e05252';
-        pwd.focus();
-        return;
-      }
-      // Validate passwords match
-      if (p1 !== p2) {
-        match.textContent = '✗ Passwords do not match';
-        match.style.color = '#e05252';
-        pwd2.focus();
-        return;
-      }
-
-      // Save email dynamically so login page can pre-fill or dashboard can display
-      localStorage.setItem('userEmail', email);
-
-      // After signup, redirect user to Login page to sign in
-      window.location.href = 'login.html';
-    });
-  </script>
 </body>
 </html>
-
-
-
