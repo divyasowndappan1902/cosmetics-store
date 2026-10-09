@@ -26,7 +26,7 @@ document.addEventListener("DOMContentLoaded", () => {
         });
 
         // Initial Navbar Entrance
-        gsap.from(nav, { y: -20, opacity: 0, duration: 1, ease: premiumEase, delay: 0.2 });
+        // gsap.from(nav, { y: -20, opacity: 0, duration: 1, ease: premiumEase, delay: 0.2 });
     }
 
     // --- HOME PAGE: HERO SECTION ---
