@@ -60,6 +60,26 @@
       .st-sparkle-2 { animation: stSparkle 2.2s ease-in-out infinite 0.6s; transform-origin: 94px 34px; }
       .st-sparkle-3 { animation: stSparkle 1.9s ease-in-out infinite 1.1s; transform-origin: 90px 78px; }
       .st-progress-bar { animation: stProgress 1.6s cubic-bezier(0.4, 0, 0.2, 1) infinite; }
+    
+        @keyframes luxuryNeonGlow {
+            0% {
+                box-shadow: 0 0 4px rgba(197, 154, 101, 0.5), 0 0 10px rgba(197, 154, 101, 0.3), inset 0 0 4px rgba(197, 154, 101, 0.2);
+                border-color: rgba(197, 154, 101, 0.5);
+            }
+            50% {
+                box-shadow: 0 0 12px rgba(197, 154, 101, 0.9), 0 0 20px rgba(197, 154, 101, 0.6), inset 0 0 8px rgba(197, 154, 101, 0.4);
+                border-color: rgba(197, 154, 101, 1);
+            }
+            100% {
+                box-shadow: 0 0 4px rgba(197, 154, 101, 0.5), 0 0 10px rgba(197, 154, 101, 0.3), inset 0 0 4px rgba(197, 154, 101, 0.2);
+                border-color: rgba(197, 154, 101, 0.5);
+            }
+        }
+        .luxury-neon-border {
+            border: 2px solid rgba(197, 154, 101, 0.5);
+            animation: luxuryNeonGlow 2.5s infinite alternate ease-in-out;
+            position: relative;
+        }
     </style>
 
     <div style="display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center;">
@@ -187,21 +207,21 @@
   <main class="flex-1 flex flex-col h-full overflow-hidden">
     
     <!-- Topbar -->
-    <header class="h-20 bg-white border-b border-[#38251E]/10 flex items-center justify-between px-8 flex-shrink-0 z-0">
-      <div class="flex items-center gap-4">
+    <header class="h-20 bg-white border-b border-[#38251E]/10 flex items-center justify-between px-3 sm:px-8 flex-shrink-0 z-0">
+      <div class="flex items-center gap-2 sm:gap-4">
         <button id="dashboard-menu-toggle" class="md:hidden text-[#38251E] p-1 rounded-lg hover:bg-[#FDF9F2] transition">
           <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path></svg>
         </button>
-        <h1 class="font-serif text-[1.5rem] text-[#38251E]">My Account</h1>
+        <h1 class="font-serif text-[1.1rem] sm:text-[1.5rem] text-[#38251E] whitespace-nowrap">My Account</h1>
       </div>
       
       <div class="flex items-center gap-6">
         <!-- Profile/Email -->
-        <div class="flex items-center gap-3">
-          <div class="hidden md:block text-right">
-            <p id="customer-header-email" class="text-[13px] font-medium text-[#38251E]">jane.doe@example.com</p>
+        <div class="flex items-center gap-2 sm:gap-3">
+          <div class="block text-right">
+            <p id="customer-header-email" class="text-[10px] sm:text-[13px] font-medium text-[#38251E] max-w-[110px] sm:max-w-none truncate">jane.doe@example.com</p>
           </div>
-          <div class="w-10 h-10 rounded-full bg-[#FDF9F2] text-[#C59A65] flex items-center justify-center font-serif font-bold text-lg border border-[#38251E]/10">
+          <div class="w-8 h-8 sm:w-10 sm:h-10 rounded-full bg-[#FDF9F2] text-[#C59A65] flex items-center justify-center font-serif font-bold text-sm sm:text-lg border border-[#38251E]/10 flex-shrink-0">
             <span id="customer-header-initials">JD</span>
           </div>
         </div>
@@ -220,7 +240,7 @@
                 <!-- Welcome Banner -->
                 <div class="w-full bg-[#3F2B26] rounded-3xl p-8 md:p-10 text-white mb-8 relative overflow-hidden flex items-center shadow-lg">
                   <div class="relative z-10 max-w-lg">
-                    <h2 class="font-serif text-[2.5rem] mb-2 leading-tight">Welcome back, Jane!</h2>
+                    <h2 class="font-serif text-[2.5rem] mb-2 leading-tight">Welcome back</h2>
                     <p class="text-white/80 text-[15px] mb-6">You have 450 beauty points available. Redeem them for exclusive rewards on your next order.</p>
                     <a href="404.html" class="inline-block bg-[#CBA87F] text-white px-6 py-2.5 rounded-full font-sans text-[13px] font-medium tracking-wide hover:bg-[#B39366] transition-colors shadow-md">
                       Redeem Points
@@ -229,7 +249,7 @@
                   <img src="assets/opt_5bbd95d4.webp" class="absolute right-0 top-0 bottom-0 w-1/2 h-full object-cover opacity-30 mix-blend-overlay mask-image-gradient" />
                 </div>
                 
-                <div class="flex justify-between items-end mb-6">
+                <div class="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4 mb-6">
                   <h3 class="font-serif text-[2rem] text-[#38251E]">My Profile</h3>
                 </div>
 
@@ -351,7 +371,7 @@
                         <div class="flex justify-between items-center mb-5">
                             <h4 class="font-serif text-[1.3rem] text-[#38251E]">Account Summary</h4>
                         </div>
-                        <div class="grid grid-cols-2 gap-4">
+                        <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
                             <div class="bg-[#FDF9F2] rounded-xl p-4 text-center">
                                 <p class="font-serif text-[2rem] text-[#C59A65] leading-none mb-1">12</p>
                                 <p class="text-[12px] text-[#38251E]/60 font-medium">Total Orders</p>
@@ -377,7 +397,7 @@
             
             <!-- ORDERS VIEW -->
             <div id="view-orders" class="dashboard-view hidden">
-                <div class="flex justify-between items-end mb-6">
+                <div class="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4 mb-6">
                   <h3 class="font-serif text-[2rem] text-[#38251E]">My Orders</h3>
                   <div class="flex gap-2">
                     <span class="px-3 py-1 bg-[#FDF9F2] text-[#C59A65] text-[12px] font-medium rounded-full cursor-pointer">All</span>
@@ -493,7 +513,7 @@
 
                 <!-- Live Tracking -->
                 <div class="bg-white rounded-2xl p-7 border border-[#38251E]/5 shadow-sm mt-6">
-                    <div class="flex justify-between items-center mb-6">
+                    <div class="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4 mb-6">
                         <h4 class="font-serif text-[1.3rem] text-[#38251E]">Live Tracking — Order #ORD-84730</h4>
                         <span class="text-[12px] font-medium text-[#C59A65] bg-[#FDF9F2] px-3 py-1 rounded-full">In Transit</span>
                     </div>
@@ -544,7 +564,7 @@
             
             <!-- WISHLIST VIEW -->
             <div id="view-wishlist" class="dashboard-view hidden">
-                <div class="flex justify-between items-end mb-6">
+                <div class="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4 mb-6">
                   <h3 class="font-serif text-[2rem] text-[#38251E]">Wishlist</h3>
                 </div>
                 
@@ -718,7 +738,7 @@
 
             <!-- NOTIFICATIONS VIEW -->
             <div id="view-notifications" class="dashboard-view hidden">
-                <div class="flex justify-between items-end mb-6">
+                <div class="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4 mb-6">
                   <h3 class="font-serif text-[2rem] text-[#38251E]">Notifications</h3>
                   <button class="text-[#C59A65] text-[13px] font-medium hover:underline">Mark all as read</button>
                 </div>
@@ -818,7 +838,7 @@
         
             <!-- SETTINGS VIEW -->
             <div id="view-settings" class="dashboard-view hidden">
-                <div class="flex justify-between items-end mb-6">
+                <div class="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4 mb-6">
                   <h3 class="font-serif text-[2rem] text-[#38251E]">Settings</h3>
                 </div>
                 
@@ -960,7 +980,27 @@
       mask-image: linear-gradient(to left, rgba(0,0,0,1) 0%, rgba(0,0,0,0) 100%);
       -webkit-mask-image: linear-gradient(to left, rgba(0,0,0,1) 0%, rgba(0,0,0,0) 100%);
     }
-  </style>
+  
+        @keyframes luxuryNeonGlow {
+            0% {
+                box-shadow: 0 0 4px rgba(197, 154, 101, 0.5), 0 0 10px rgba(197, 154, 101, 0.3), inset 0 0 4px rgba(197, 154, 101, 0.2);
+                border-color: rgba(197, 154, 101, 0.5);
+            }
+            50% {
+                box-shadow: 0 0 12px rgba(197, 154, 101, 0.9), 0 0 20px rgba(197, 154, 101, 0.6), inset 0 0 8px rgba(197, 154, 101, 0.4);
+                border-color: rgba(197, 154, 101, 1);
+            }
+            100% {
+                box-shadow: 0 0 4px rgba(197, 154, 101, 0.5), 0 0 10px rgba(197, 154, 101, 0.3), inset 0 0 4px rgba(197, 154, 101, 0.2);
+                border-color: rgba(197, 154, 101, 0.5);
+            }
+        }
+        .luxury-neon-border {
+            border: 2px solid rgba(197, 154, 101, 0.5);
+            animation: luxuryNeonGlow 2.5s infinite alternate ease-in-out;
+            position: relative;
+        }
+    </style>
 
 
 
@@ -1032,3 +1072,18 @@
   </script>
 </body>
 </html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

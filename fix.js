@@ -1,0 +1,1 @@
+const fs = require('fs'); let c = fs.readFileSync('index.html', 'utf8'); c = c.replace(/<div id="newsletterError"[^>]*>.*?<\/div>/s, ''); c = c.replace(/if \(\!email\.validity\.valid\) \{[\s\S]*?\} else \{([\s\S]*?)\}/, '$1'); fs.writeFileSync('index.html', c, 'utf8'); console.log('Fixed');

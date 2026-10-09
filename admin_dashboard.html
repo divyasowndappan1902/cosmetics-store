@@ -60,6 +60,26 @@
       .st-sparkle-2 { animation: stSparkle 2.2s ease-in-out infinite 0.6s; transform-origin: 94px 34px; }
       .st-sparkle-3 { animation: stSparkle 1.9s ease-in-out infinite 1.1s; transform-origin: 90px 78px; }
       .st-progress-bar { animation: stProgress 1.6s cubic-bezier(0.4, 0, 0.2, 1) infinite; }
+    
+        @keyframes luxuryNeonGlow {
+            0% {
+                box-shadow: 0 0 4px rgba(197, 154, 101, 0.5), 0 0 10px rgba(197, 154, 101, 0.3), inset 0 0 4px rgba(197, 154, 101, 0.2);
+                border-color: rgba(197, 154, 101, 0.5);
+            }
+            50% {
+                box-shadow: 0 0 12px rgba(197, 154, 101, 0.9), 0 0 20px rgba(197, 154, 101, 0.6), inset 0 0 8px rgba(197, 154, 101, 0.4);
+                border-color: rgba(197, 154, 101, 1);
+            }
+            100% {
+                box-shadow: 0 0 4px rgba(197, 154, 101, 0.5), 0 0 10px rgba(197, 154, 101, 0.3), inset 0 0 4px rgba(197, 154, 101, 0.2);
+                border-color: rgba(197, 154, 101, 0.5);
+            }
+        }
+        .luxury-neon-border {
+            border: 2px solid rgba(197, 154, 101, 0.5);
+            animation: luxuryNeonGlow 2.5s infinite alternate ease-in-out;
+            position: relative;
+        }
     </style>
 
     <div style="display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center;">
@@ -186,25 +206,22 @@
   <main class="flex-1 flex flex-col h-full overflow-hidden">
     
     <!-- Topbar -->
-    <header class="h-20 bg-white border-b border-[#38251E]/10 flex items-center justify-between px-8 flex-shrink-0">
-      <div class="flex items-center gap-4">
+    <header class="h-20 bg-white border-b border-[#38251E]/10 flex items-center justify-between px-3 sm:px-8 flex-shrink-0">
+      <div class="flex items-center gap-2 sm:gap-4">
         <button id="dashboard-menu-toggle" class="md:hidden text-[#38251E] p-1 rounded-lg hover:bg-[#FDF9F2] transition">
           <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path></svg>
         </button>
-        <h1 class="font-serif text-[1.5rem] text-[#38251E]">Dashboard</h1>
+        <h1 class="font-serif text-[1.1rem] sm:text-[1.5rem] text-[#38251E] whitespace-nowrap">Dashboard</h1>
       </div>
       
       <div class="flex items-center gap-6">
-        
-        
-
         <!-- Profile -->
-        <div class="flex items-center gap-3">
-          <img id="admin-profile-img" src="assets/opt_481e6403.webp" alt="Admin" class="w-10 h-10 rounded-full object-cover" />
-          <div class="hidden md:block">
-            <p id="admin-profile-name" class="text-[13px] font-semibold text-[#38251E]">Elise Marchand</p>
-            <p id="admin-profile-email" class="text-[11px] text-[#38251E]/60">elise@maisonrosee.com</p>
+        <div class="flex items-center gap-2 sm:gap-3">
+          <div class="block text-right">
+            <p id="admin-profile-name" class="hidden sm:block text-[13px] font-semibold text-[#38251E]">Elise Marchand</p>
+            <p id="admin-profile-email" class="text-[10px] sm:text-[11px] text-[#38251E]/60 max-w-[110px] sm:max-w-none truncate">elise@maisonrosee.com</p>
           </div>
+          <img id="admin-profile-img" src="assets/opt_481e6403.webp" alt="Admin" class="w-8 h-8 sm:w-10 sm:h-10 rounded-full object-cover flex-shrink-0" />
         </div>
       </div>
     </header>
@@ -215,7 +232,7 @@
             
             <!-- OVERVIEW VIEW -->
             <div id="view-overview" class="dashboard-view block">
-                <div class="flex justify-between items-end mb-6">
+                <div class="flex flex-col sm:flex-row justify-between items-start sm:items-end gap-4 mb-6">
                   <h3 class="font-serif text-[2rem] text-[#38251E]">Overview</h3>
                   <div class="flex gap-2">
                     <span class="px-3 py-1 bg-[#FDF9F2] text-[#C59A65] text-[12px] font-medium rounded-full cursor-pointer">Today</span>
@@ -345,7 +362,7 @@
                 <div class="grid grid-cols-1 lg:grid-cols-2 gap-6 mt-6 items-start">
                     <div class="bg-white rounded-2xl p-6 border border-[#38251E]/5 shadow-sm">
                         <h4 class="font-serif text-[1.3rem] text-[#38251E] mb-6">Top Customers</h4>
-                        <table class="w-full text-left text-[13px]">
+                        <div class="w-full overflow-x-auto"><table class="w-full text-left text-[13px]">
                             <tbody class="divide-y divide-[#38251E]/5">
                                 <tr class="hover:bg-gray-50/50 transition-colors">
                                     <td class="py-3 px-2 flex items-center gap-3"><div class="w-8 h-8 rounded-full bg-[#EBE0D2] flex items-center justify-center text-[#38251E] font-serif font-bold text-xs">JD</div> Jane Doe</td>
@@ -360,12 +377,12 @@
                                     <td class="py-3 px-2 text-right font-medium text-[#C59A65]">$420</td>
                                 </tr>
                             </tbody>
-                        </table>
+                        </table></div>
                     </div>
                     
                     <div class="bg-white rounded-2xl p-6 border border-[#38251E]/5 shadow-sm">
                         <h4 class="font-serif text-[1.3rem] text-[#38251E] mb-6">Low Stock Alerts</h4>
-                        <table class="w-full text-left text-[13px]">
+                        <div class="w-full overflow-x-auto"><table class="w-full text-left text-[13px]">
                             <tbody class="divide-y divide-[#38251E]/5">
                                 <tr class="hover:bg-gray-50/50 transition-colors">
                                     <td class="py-3 px-2 text-[#38251E] font-medium">Velvet Lipstick (Ruby)</td>
@@ -380,7 +397,7 @@
                                     <td class="py-3 px-2 text-right text-red-500 font-medium flex items-center justify-end gap-2"><svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z"></path></svg> 1 left</td>
                                 </tr>
                             </tbody>
-                        </table>
+                        </table></div>
                     </div>
                     <!-- Sales by Channel -->
                     <div class="bg-white rounded-2xl p-6 border border-[#38251E]/5 shadow-sm">
@@ -437,7 +454,7 @@
                         <h4 class="font-serif text-[1.3rem] text-[#38251E]">Recent Orders</h4>
                         <button class="text-[#C59A65] text-[13px] font-medium hover:underline">View All</button>
                     </div>
-                    <table class="w-full text-[13px]">
+                    <div class="w-full overflow-x-auto"><table class="w-full text-[13px]">
                         <thead>
                             <tr class="bg-[#FDF9F2]/60 text-[#38251E]/50 text-[11px] uppercase tracking-wider font-medium">
                                 <th class="text-left px-6 py-3">Order ID</th>
@@ -477,7 +494,7 @@
                                 <td class="px-6 py-4"><span class="px-2.5 py-1 bg-red-50 text-red-500 rounded-full text-[11px] font-medium">Cancelled</span></td>
                             </tr>
                         </tbody>
-                    </table>
+                    </table></div>
                 </div>
 
                 <!-- Goals & Targets -->
@@ -542,7 +559,7 @@
 
             <!-- ORDERS VIEW -->
             <div id="view-orders" class="dashboard-view hidden">
-                <div class="flex justify-between items-end mb-6">
+                <div class="flex flex-col sm:flex-row justify-between items-start sm:items-end gap-4 mb-6">
                   <h3 class="font-serif text-[2rem] text-[#38251E]">Orders Management</h3>
                   <button class="bg-[#3F2B26] text-white px-5 py-2 rounded-lg text-[13px] font-medium shadow-sm hover:bg-[#2A1D19] transition">Export CSV</button>
                 </div>
@@ -601,7 +618,7 @@
                     </select>
                   </div>
                   <!-- Reuse the table from Overview but show more -->
-                  <table class="w-full text-left text-[13px]">
+                  <div class="w-full overflow-x-auto"><table class="w-full text-left text-[13px]">
                     <thead class="bg-[#FDF9F2]/50 text-[#38251E]/60 font-medium">
                       <tr>
                         <th class="px-6 py-4">Order ID</th>
@@ -641,7 +658,7 @@
                         <td class="px-6 py-4 text-right font-medium text-[#38251E]">$210.00</td>
                       </tr>
                     </tbody>
-                  </table>
+                  </table></div>
                   <div class="p-4 border-t border-[#38251E]/5 text-center">
                     <button class="text-[12px] text-[#C59A65] font-medium hover:underline">Load More Orders</button>
                   </div>
@@ -651,7 +668,7 @@
                 <div class="grid grid-cols-1 lg:grid-cols-2 gap-6 mt-6">
                     <div class="bg-white rounded-2xl p-6 border border-[#38251E]/5 shadow-sm">
                         <h4 class="font-serif text-[1.3rem] text-[#38251E] mb-6">Returns & Refunds</h4>
-                        <table class="w-full text-left text-[13px]">
+                        <div class="w-full overflow-x-auto"><table class="w-full text-left text-[13px]">
                             <tbody class="divide-y divide-[#38251E]/5">
                                 <tr class="hover:bg-gray-50/50 transition-colors">
                                     <td class="py-3 px-2 text-[#38251E] font-medium">#RET-9901</td>
@@ -669,7 +686,7 @@
                                     <td class="py-3 px-2 text-right text-red-500 font-medium">-$142.00</td>
                                 </tr>
                             </tbody>
-                        </table>
+                        </table></div>
                     </div>
                     
                     <div class="bg-white rounded-2xl p-6 border border-[#38251E]/5 shadow-sm">
@@ -699,7 +716,7 @@
 
             <!-- CUSTOMERS VIEW -->
             <div id="view-customers" class="dashboard-view hidden">
-                <div class="flex justify-between items-end mb-6">
+                <div class="flex flex-col sm:flex-row justify-between items-start sm:items-end gap-4 mb-6">
                   <h3 class="font-serif text-[2rem] text-[#38251E]">Customers Directory</h3>
                   <button class="bg-[#3F2B26] text-white px-5 py-2 rounded-lg text-[13px] font-medium shadow-sm hover:bg-[#2A1D19] transition">Add Customer</button>
                 </div>
@@ -766,7 +783,7 @@
                     
                     <div class="bg-white rounded-2xl p-6 border border-[#38251E]/5 shadow-sm">
                         <h4 class="font-serif text-[1.3rem] text-[#38251E] mb-6">New Signups</h4>
-                        <table class="w-full text-left text-[13px]">
+                        <div class="w-full overflow-x-auto"><table class="w-full text-left text-[13px]">
                             <tbody class="divide-y divide-[#38251E]/5">
                                 <tr class="hover:bg-gray-50/50 transition-colors">
                                     <td class="py-3 px-2 text-[#38251E] font-medium flex items-center gap-3"><div class="w-6 h-6 rounded-full bg-[#EBE0D2] flex items-center justify-center text-[9px] font-bold">AJ</div> Alice Johnson</td>
@@ -781,7 +798,7 @@
                                     <td class="py-3 px-2 text-right text-[#38251E]/60">1 day ago</td>
                                 </tr>
                             </tbody>
-                        </table>
+                        </table></div>
                     </div>
                 </div>
 
@@ -789,7 +806,7 @@
                 <div class="grid grid-cols-1 lg:grid-cols-2 gap-6 mt-6">
                     <div class="bg-white rounded-2xl p-6 border border-[#38251E]/5 shadow-sm">
                         <h4 class="font-serif text-[1.3rem] text-[#38251E] mb-6">Support Tickets</h4>
-                        <table class="w-full text-left text-[13px]">
+                        <div class="w-full overflow-x-auto"><table class="w-full text-left text-[13px]">
                             <tbody class="divide-y divide-[#38251E]/5">
                                 <tr class="hover:bg-gray-50/50 transition-colors">
                                     <td class="py-3 px-2 text-[#38251E] font-medium">#TIC-440</td>
@@ -807,7 +824,7 @@
                                     <td class="py-3 px-2 text-right"><span class="px-2.5 py-1 rounded-full bg-yellow-100 text-yellow-700 text-[11px] font-medium">Open</span></td>
                                 </tr>
                             </tbody>
-                        </table>
+                        </table></div>
                     </div>
                     
                     <div class="bg-white rounded-2xl p-6 border border-[#38251E]/5 shadow-sm">
@@ -837,7 +854,7 @@
 
             <!-- INVENTORY VIEW -->
             <div id="view-inventory" class="dashboard-view hidden">
-                <div class="flex justify-between items-end mb-6">
+                <div class="flex flex-col sm:flex-row justify-between items-start sm:items-end gap-4 mb-6">
                   <h3 class="font-serif text-[2rem] text-[#38251E]">Inventory</h3>
                   <button class="bg-[#3F2B26] text-white px-5 py-2 rounded-lg text-[13px] font-medium shadow-sm hover:bg-[#2A1D19] transition">Add Product</button>
                 </div>
@@ -886,7 +903,7 @@
                 </div>
                 
                 <div class="bg-white rounded-2xl border border-[#38251E]/5 shadow-sm overflow-hidden">
-                  <table class="w-full text-left text-[13px]">
+                  <div class="w-full overflow-x-auto"><table class="w-full text-left text-[13px]">
                     <thead class="bg-[#FDF9F2]/50 text-[#38251E]/60 font-medium">
                       <tr>
                         <th class="px-6 py-4">Product</th>
@@ -928,7 +945,7 @@
                         <td class="px-6 py-4 text-right"><span class="px-2.5 py-1 rounded-full bg-red-100 text-red-700 text-[11px] font-medium">Out of Stock</span></td>
                       </tr>
                     </tbody>
-                  </table>
+                  </table></div>
                 </div>
 
                 <!-- Additional Inventory Content Sections -->
@@ -958,7 +975,7 @@
                     
                     <div class="bg-white rounded-2xl p-6 border border-[#38251E]/5 shadow-sm">
                         <h4 class="font-serif text-[1.3rem] text-[#38251E] mb-6">Recent Restocks</h4>
-                        <table class="w-full text-left text-[13px]">
+                        <div class="w-full overflow-x-auto"><table class="w-full text-left text-[13px]">
                             <tbody class="divide-y divide-[#38251E]/5">
                                 <tr class="hover:bg-gray-50/50 transition-colors">
                                     <td class="py-3 px-2 text-[#38251E] font-medium">Hydrating Night Cream</td>
@@ -973,14 +990,14 @@
                                     <td class="py-3 px-2 text-right text-green-600 font-medium">+30 units</td>
                                 </tr>
                             </tbody>
-                        </table>
+                        </table></div>
                     </div>
                 </div>
             </div>
 
             <!-- SETTINGS VIEW -->
             <div id="view-settings" class="dashboard-view hidden">
-                <div class="flex justify-between items-end mb-6">
+                <div class="flex flex-col sm:flex-row justify-between items-start sm:items-end gap-4 mb-6">
                   <h3 class="font-serif text-[2rem] text-[#38251E]">Settings</h3>
                   <button class="bg-[#3F2B26] text-white px-5 py-2 rounded-lg text-[13px] font-medium shadow-sm hover:bg-[#2A1D19] transition">Save Changes</button>
                 </div>
@@ -1179,3 +1196,19 @@
   </script>
 </body>
 </html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

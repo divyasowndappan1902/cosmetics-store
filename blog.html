@@ -60,6 +60,26 @@
       .st-sparkle-2 { animation: stSparkle 2.2s ease-in-out infinite 0.6s; transform-origin: 94px 34px; }
       .st-sparkle-3 { animation: stSparkle 1.9s ease-in-out infinite 1.1s; transform-origin: 90px 78px; }
       .st-progress-bar { animation: stProgress 1.6s cubic-bezier(0.4, 0, 0.2, 1) infinite; }
+    
+        @keyframes luxuryNeonGlow {
+            0% {
+                box-shadow: 0 0 4px rgba(197, 154, 101, 0.5), 0 0 10px rgba(197, 154, 101, 0.3), inset 0 0 4px rgba(197, 154, 101, 0.2);
+                border-color: rgba(197, 154, 101, 0.5);
+            }
+            50% {
+                box-shadow: 0 0 12px rgba(197, 154, 101, 0.9), 0 0 20px rgba(197, 154, 101, 0.6), inset 0 0 8px rgba(197, 154, 101, 0.4);
+                border-color: rgba(197, 154, 101, 1);
+            }
+            100% {
+                box-shadow: 0 0 4px rgba(197, 154, 101, 0.5), 0 0 10px rgba(197, 154, 101, 0.3), inset 0 0 4px rgba(197, 154, 101, 0.2);
+                border-color: rgba(197, 154, 101, 0.5);
+            }
+        }
+        .luxury-neon-border {
+            border: 2px solid rgba(197, 154, 101, 0.5);
+            animation: luxuryNeonGlow 2.5s infinite alternate ease-in-out;
+            position: relative;
+        }
     </style>
 
     <div style="display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center;">
@@ -146,7 +166,7 @@
 
 
     <!-- Fixed Luxury Navbar -->
-  <header style="position: fixed; top: 0; left: 0; width: 100%; z-index: 9999;" class="site-header bg-[#FDF9F2]/95 backdrop-blur-md border-b border-[#38251E]/10 transition-all duration-300">
+  <header class="site-header fixed top-0 left-0 z-50 w-full bg-[#FDF9F2]/95 backdrop-blur-md border-b border-[#38251E]/10 transition-all duration-300">
     <nav class="max-w-7xl mx-auto px-6 py-4 flex items-center justify-between">
         <!-- Logo -->
         <div class="flex items-center cursor-pointer">
@@ -157,11 +177,11 @@
         
         <!-- Links -->
         <div class="hidden md:flex items-center gap-8 text-[15px] font-medium">
-            <a href="index.html" class="text-gray-900 transition hover:text-[#ceab7e]">Home</a>
-            <a href="about.html" class="text-gray-900 transition hover:text-[#ceab7e]">About</a>
-            <a href="services.html" class="text-gray-900 transition hover:text-[#ceab7e]">Services</a>
+            <a href="index.html" class="text-gray-900 transition hover:text-[#ceab7e] font-medium">Home</a>
+            <a href="about.html" class="text-gray-900 transition hover:text-[#ceab7e] font-medium">About</a>
+            <a href="services.html" class="text-gray-900 transition hover:text-[#ceab7e] font-medium">Services</a>
             <a href="blog.html" class="text-[#ceab7e] transition hover:opacity-70 font-semibold">Blog</a>
-            <a href="contact.html" class="block text-[15px] font-medium text-gray-900 hover:text-[#ceab7e]">Contact</a>
+            <a href="contact.html" class="text-gray-900 transition hover:text-[#ceab7e] font-medium">Contact</a>
 
     </div>
 
@@ -178,13 +198,13 @@
     </nav>
 
     <!-- Mobile Dropdown Menu -->
-    <div id="mobile-menu" class="hidden md:hidden border-t border-[#38251E]/10 bg-[#FDF9F2] px-6 py-4 space-y-3 shadow-lg">
-        <a href="index.html" class="block text-[15px] font-medium text-gray-900 hover:text-[#ceab7e]">Home</a>
-        <a href="about.html" class="block text-[15px] font-medium text-gray-900 hover:text-[#ceab7e]">About</a>
-        <a href="services.html" class="block text-[15px] font-medium text-gray-900 hover:text-[#ceab7e]">Services</a>
+    <div id="mobile-menu" class="w-full hidden md:hidden absolute left-0 top-full h-[calc(100vh-70px)] border-t border-[#38251E]/10 bg-[#FDF9F2] px-8 py-10 space-y-6 shadow-lg overflow-y-auto">
+        <a href="index.html" class="block text-[18px] font-medium text-gray-900 hover:text-[#ceab7e]">Home</a>
+        <a href="about.html" class="block text-[18px] font-medium text-gray-900 hover:text-[#ceab7e]">About</a>
+        <a href="services.html" class="block text-[18px] font-medium text-gray-900 hover:text-[#ceab7e]">Services</a>
         <a href="blog.html" class="block text-[15px] font-semibold text-[#ceab7e]">Blog</a>
-        <a href="contact.html" class="block text-[15px] font-medium text-gray-900 hover:text-[#ceab7e]">Contact</a>
-        <div class="pt-2 border-t border-[#38251E]/10 mt-2">
+        <a href="contact.html" class="block text-[18px] font-medium text-gray-900 hover:text-[#ceab7e]">Contact</a>
+        <div class="pt-6 border-t border-[#38251E]/10 mt-6">
             <a href="login.html" class="block text-center bg-[#38302A] text-white px-6 py-2.5 text-sm font-medium rounded-md hover:bg-black transition w-full">Register</a>
         </div>
     </div>
@@ -197,10 +217,10 @@
         
         <!-- Left Content -->
         <div class="left-content w-full md:w-7/12 relative z-10 pt-4">
-          <h1 class="font-serif text-[4.5rem] sm:text-[6rem] lg:text-[7.5rem] text-[#000000] leading-[0.85] tracking-tight mb-2">
+          <h1 class="font-serif text-[12vw] sm:text-[6rem] lg:text-[7.5rem] text-[#000000] leading-[0.85] tracking-tight mb-2">
             The Beauty
           </h1>
-          <h1 class="font-serif text-[#CBA87F] text-[4rem] sm:text-[5rem] lg:text-[6.5rem] leading-[0.85] tracking-tight mb-10">
+          <h1 class="font-serif text-[#CBA87F] text-[12vw] sm:text-[5rem] lg:text-[6.5rem] leading-[0.85] tracking-tight mb-10">
             Journal
           </h1>
           
@@ -222,7 +242,7 @@
         <!-- Right Content (Image) -->
         <!-- Negative margins allow image to slightly overlap the "y" like in mockup -->
         <div class="right-content w-full md:w-5/12 relative mt-16 md:mt-0 flex justify-end md:-ml-8 lg:-ml-12 pointer-events-none">
-          <div class="animate-float-slow w-full flex justify-end"><img src="assets/opt_9996d6b2.webp" style="border-radius: 24px;" alt="Rare Beauty Product" class="w-[280px] md:w-[350px] lg:w-[420px] h-auto object-contain mix-blend-multiply relative z-0" /></div>
+          <div class="animate-float-slow w-full flex justify-end"><img src="assets/opt_9996d6b2.webp" style="border-radius: 24px;" alt="Rare Beauty Product" class="w-full max-w-[280px] md:w-[350px] lg:w-[420px] h-auto object-contain mix-blend-multiply relative z-0" /></div>
         </div>
 
       </div>
@@ -246,7 +266,7 @@
         <div class="right-content w-full lg:w-1/2 flex flex-col">
           <p class="font-serif text-[#38251E] text-[18px] mb-4 md:mb-6">Cover Story</p>
           
-          <h2 class="font-serif text-[3rem] md:text-[3.5rem] lg:text-[4rem] text-[#38251E] leading-[1.1] tracking-tight mb-8">
+          <h2 class="font-serif text-[3rem] md:text-[3.5rem] lg:text-[12vw] text-[#38251E] leading-[1.1] tracking-tight mb-8">
             The Quiet Return Of <br class="hidden lg:block"/><span class="text-[#D0B286]">Slow Skincare</span>
           </h2>
           
@@ -283,7 +303,7 @@
       <div class="flex flex-col lg:flex-row lg:items-end justify-between mb-12 lg:mb-16 gap-8">
         <div>
           <p class="font-serif text-[#38251E] text-[16px] md:text-[18px] mb-2">Fresh From The Studio</p>
-          <h2 class="font-serif text-[3rem] md:text-[4rem] text-[#38251E] leading-none tracking-tight">
+          <h2 class="font-serif text-[3rem] md:text-[12vw] text-[#38251E] leading-none tracking-tight">
             Latest <span class="text-[#D0B286]">Articles</span>
           </h2>
         </div>
@@ -491,13 +511,162 @@
     </div>
   </section>
 
+  <!-- Beauty Guides Section -->
+  <section class="w-full bg-[#38251E] py-24 md:py-32 relative overflow-hidden border-t border-[#FDF9F2]/10">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="mb-16 md:mb-24 flex flex-col md:flex-row md:items-end justify-between">
+        <div>
+          <h2 class="font-serif text-[2.5rem] md:text-[3.25rem] text-[#FDF9F2] leading-tight tracking-tight mb-4">
+            Beauty <span class="text-[#D0B286] font-light italic">Guides</span>
+          </h2>
+          <p class="font-serif text-[#FDF9F2]/80 text-[1.15rem] max-w-lg">
+            Editorial deep-dives into routines, ingredients, and techniques.
+          </p>
+        </div>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-12 gap-8 md:gap-12">
+        
+        <!-- Guide 1 (Large) -->
+        <a href="#" class="group md:col-span-7 relative h-[350px] md:h-[600px] rounded-3xl overflow-hidden block guide-card opacity-0 translate-y-10 shadow-lg">
+          <img src="assets/opt_2c92114b.webp" alt="Skincare Routine Guide" class="absolute inset-0 w-full h-full object-cover transition-transform duration-1000 group-hover:scale-105" />
+          <div class="absolute inset-0 bg-gradient-to-t from-[#38251E]/90 via-[#38251E]/20 to-transparent"></div>
+          <div class="absolute bottom-0 left-0 w-full p-6 md:p-12">
+            <span class="inline-block px-3 py-1 bg-[#D0B286] text-[#38251E] text-xs font-serif rounded-full mb-4">Skincare</span>
+            <h3 class="font-serif text-2xl md:text-4xl text-[#FDF9F2] mb-3 leading-tight">The Ultimate Skincare Routine Guide</h3>
+            <span class="text-[#FDF9F2]/70 text-sm font-sans tracking-wide">8 MIN READ</span>
+          </div>
+        </a>
+
+        <!-- Guide 2 (Tall) -->
+        <a href="#" class="group md:col-span-5 relative h-[350px] md:h-[600px] rounded-3xl overflow-hidden block guide-card opacity-0 translate-y-10 delay-100 shadow-lg">
+          <img src="assets/opt_b1a3fb35.webp" alt="Find Your Perfect Shade" class="absolute inset-0 w-full h-full object-cover transition-transform duration-1000 group-hover:scale-105" />
+          <div class="absolute inset-0 bg-gradient-to-t from-[#38251E]/90 via-[#38251E]/20 to-transparent"></div>
+          <div class="absolute bottom-0 left-0 w-full p-6 md:p-12">
+            <span class="inline-block px-3 py-1 bg-[#FDF9F2] text-[#38251E] text-xs font-serif rounded-full mb-4">Makeup</span>
+            <h3 class="font-serif text-2xl md:text-4xl text-[#FDF9F2] mb-3 leading-tight">Find Your Perfect Foundation Shade</h3>
+            <span class="text-[#FDF9F2]/70 text-sm font-sans tracking-wide">5 MIN READ</span>
+          </div>
+        </a>
+
+        <!-- Guide 3 (Wide) -->
+        <a href="#" class="group md:col-span-5 relative h-[350px] md:h-[400px] rounded-3xl overflow-hidden block guide-card opacity-0 translate-y-10 shadow-lg">
+          <img src="assets/opt_338764b8.webp" alt="Ingredient Guide" class="absolute inset-0 w-full h-full object-cover transition-transform duration-1000 group-hover:scale-105" />
+          <div class="absolute inset-0 bg-gradient-to-t from-[#38251E]/90 via-[#38251E]/20 to-transparent"></div>
+          <div class="absolute bottom-0 left-0 w-full p-6 md:p-8">
+            <span class="inline-block px-3 py-1 bg-[#E9D1A7] text-[#38251E] text-xs font-serif rounded-full mb-4">Education</span>
+            <h3 class="font-serif text-xl md:text-3xl text-[#FDF9F2] mb-3 leading-tight">The Master Ingredient Guide</h3>
+            <span class="text-[#FDF9F2]/70 text-sm font-sans tracking-wide">12 MIN READ</span>
+          </div>
+        </a>
+
+        <!-- Guide 4 (Wide) -->
+        <a href="#" class="group md:col-span-7 relative h-[350px] md:h-[400px] rounded-3xl overflow-hidden block guide-card opacity-0 translate-y-10 delay-100 shadow-lg">
+          <img src="assets/sets_category.webp" alt="Beginner's Makeup Guide" class="absolute inset-0 w-full h-full object-cover transition-transform duration-1000 group-hover:scale-105" />
+          <div class="absolute inset-0 bg-gradient-to-t from-[#38251E]/90 via-[#38251E]/20 to-transparent"></div>
+          <div class="absolute bottom-0 left-0 w-full p-6 md:p-8">
+            <span class="inline-block px-3 py-1 bg-[#D0B286] text-[#38251E] text-xs font-serif rounded-full mb-4">Tutorials</span>
+            <h3 class="font-serif text-xl md:text-3xl text-[#FDF9F2] mb-3 leading-tight">Beginner’s Makeup Guide for a Flawless Finish</h3>
+            <span class="text-[#FDF9F2]/70 text-sm font-sans tracking-wide">6 MIN READ</span>
+          </div>
+        </a>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- Ask Our Beauty Experts Section -->
+  <section class="w-full bg-[#FDF9F2] py-24 md:py-32 relative overflow-hidden">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center mb-16">
+        <div class="w-16 h-16 mx-auto bg-[#38251E] rounded-full flex items-center justify-center text-[#D0B286] mb-6 shadow-md">
+          <i class="fa-solid fa-leaf text-2xl"></i>
+        </div>
+        <h2 class="font-serif text-[2.5rem] md:text-[3.25rem] text-[#38251E] leading-tight tracking-tight mb-4">
+          Ask Our <span class="text-[#D0B286] font-light italic">Beauty Experts</span>
+        </h2>
+      </div>
+
+      <div class="space-y-4 accordion-container">
+        
+        <!-- FAQ 1 -->
+        <div class="faq-item border border-[#38251E]/10 rounded-2xl overflow-hidden bg-white transition-colors duration-300">
+          <button class="faq-btn w-full px-6 py-5 md:p-8 flex justify-between items-center text-left focus:outline-none bg-transparent">
+            <h3 class="font-serif text-[1.1rem] md:text-2xl text-[#38251E] pr-8">Which serum is right for my skin?</h3>
+            <span class="faq-icon flex-shrink-0 w-10 h-10 rounded-full border border-[#38251E]/20 flex items-center justify-center text-[#38251E] transition-transform duration-300">
+              <i class="fa-solid fa-plus"></i>
+            </span>
+          </button>
+          <div class="faq-content overflow-hidden transition-[max-height] duration-500 ease-in-out" style="max-height: 0;">
+            <div class="px-6 pb-6 md:px-8 md:pb-8">
+              <p class="font-serif text-[#38251E]/80 text-[1rem] md:text-[1.05rem] leading-relaxed">
+                It depends entirely on your primary skin goals. For hydration, look for Hyaluronic Acid. To brighten and even tone, Vitamin C is essential. If you are targeting fine lines, a gentle Retinol or Bakuchiol serum will be most effective.
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <!-- FAQ 2 -->
+        <div class="faq-item border border-[#38251E]/10 rounded-2xl overflow-hidden bg-white transition-colors duration-300">
+          <button class="faq-btn w-full px-6 py-5 md:p-8 flex justify-between items-center text-left focus:outline-none bg-transparent">
+            <h3 class="font-serif text-[1.1rem] md:text-2xl text-[#38251E] pr-8">How do I find my undertone?</h3>
+            <span class="faq-icon flex-shrink-0 w-10 h-10 rounded-full border border-[#38251E]/20 flex items-center justify-center text-[#38251E] transition-transform duration-300">
+              <i class="fa-solid fa-plus"></i>
+            </span>
+          </button>
+          <div class="faq-content overflow-hidden transition-[max-height] duration-500 ease-in-out" style="max-height: 0;">
+            <div class="px-6 pb-6 md:px-8 md:pb-8">
+              <p class="font-serif text-[#38251E]/80 text-[1rem] md:text-[1.05rem] leading-relaxed">
+                Look at the veins on your wrist in natural light. Blue or purple indicates a cool undertone; green indicates warm. If you see a mix of both, you likely have a neutral undertone. Silver jewelry flatters cool tones, while gold flatters warm.
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <!-- FAQ 3 -->
+        <div class="faq-item border border-[#38251E]/10 rounded-2xl overflow-hidden bg-white transition-colors duration-300">
+          <button class="faq-btn w-full px-6 py-5 md:p-8 flex justify-between items-center text-left focus:outline-none bg-transparent">
+            <h3 class="font-serif text-[1.1rem] md:text-2xl text-[#38251E] pr-8">What should I use for a simple morning routine?</h3>
+            <span class="faq-icon flex-shrink-0 w-10 h-10 rounded-full border border-[#38251E]/20 flex items-center justify-center text-[#38251E] transition-transform duration-300">
+              <i class="fa-solid fa-plus"></i>
+            </span>
+          </button>
+          <div class="faq-content overflow-hidden transition-[max-height] duration-500 ease-in-out" style="max-height: 0;">
+            <div class="px-6 pb-6 md:px-8 md:pb-8">
+              <p class="font-serif text-[#38251E]/80 text-[1rem] md:text-[1.05rem] leading-relaxed">
+                A simple, effective morning routine consists of three core steps: gently cleanse, apply a targeted serum or moisturizer to hydrate, and finish with a broad-spectrum SPF to protect your skin throughout the day.
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <!-- FAQ 4 -->
+        <div class="faq-item border border-[#38251E]/10 rounded-2xl overflow-hidden bg-white transition-colors duration-300">
+          <button class="faq-btn w-full px-6 py-5 md:p-8 flex justify-between items-center text-left focus:outline-none bg-transparent">
+            <h3 class="font-serif text-[1.1rem] md:text-2xl text-[#38251E] pr-8">How can I choose the right foundation shade?</h3>
+            <span class="faq-icon flex-shrink-0 w-10 h-10 rounded-full border border-[#38251E]/20 flex items-center justify-center text-[#38251E] transition-transform duration-300">
+              <i class="fa-solid fa-plus"></i>
+            </span>
+          </button>
+          <div class="faq-content overflow-hidden transition-[max-height] duration-500 ease-in-out" style="max-height: 0;">
+            <div class="px-6 pb-6 md:px-8 md:pb-8">
+              <p class="font-serif text-[#38251E]/80 text-[1rem] md:text-[1.05rem] leading-relaxed">
+                Always test foundation on your jawline, not your hand, and check the match in natural daylight. The right shade will disappear into your skin without leaving a harsh line of demarcation between your face and neck.
+              </p>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
   <!-- Our Promise Section -->
   <section class="w-full bg-[#FDF9F2] py-24 md:py-32 border-t border-[#38251E]/10">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
       
       <!-- Top Title (Header) -->
       <div class="mb-16">
-        <h2 class="font-serif text-[3.5rem] md:text-[4.5rem] text-[#38251E] leading-none tracking-tight mb-4">
+        <h2 class="font-serif text-[3.5rem] md:text-[12vw] text-[#38251E] leading-none tracking-tight mb-4">
           Our <span class="text-[#CBA87F]">promise</span>
         </h2>
         <p class="font-serif text-[#38251E] text-lg md:text-[1.1rem] font-medium max-w-sm pb-2">
@@ -585,42 +754,42 @@
   <!-- Footer -->
   <footer class="w-full bg-[#C3A47C] pt-20 pb-16 mt-10">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-      <div class="grid grid-cols-1 md:grid-cols-4 gap-12 md:gap-8">
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-12 gap-10 lg:gap-8">
         
         <!-- Column 1: Brand & Socials -->
-        <div class="flex flex-col pr-8">
+          <div class="flex flex-col lg:col-span-4 lg:pr-12">
           <!-- Logo -->
           <div class="flex-shrink-0 flex items-center mb-6">
             <img src="assets/logo_0027.webp" alt="Stackly Logo" class="h-12 w-auto object-contain" />
           </div>
-          <p class="font-serif text-brand-text mb-8 leading-snug">
+          <p class="font-serif text-white mb-8 leading-snug">
             Modern luxury beauty, made with botanicals and a little gold.
           </p>
           <!-- Social Icons -->
           <div class="flex space-x-3">
             <!-- Google -->
-            <a href="404.html" class="w-10 h-10 rounded-xl bg-[#FDF9F2] flex items-center justify-center hover:bg-white transition-colors shadow-sm text-[#C59A65] hover:text-[#38251E]">
+            <a href="404.html" class="w-10 h-10 rounded-xl bg-[#FDF9F2] flex items-center justify-center hover:bg-white transition-colors shadow-sm text-black hover:text-[#38251E]">
               <i class="fa-brands fa-google text-base"></i>
             </a>
             <!-- Facebook -->
-            <a href="404.html" class="w-10 h-10 rounded-xl bg-[#FDF9F2] flex items-center justify-center hover:bg-white transition-colors shadow-sm text-[#1877F2]">
+            <a href="404.html" class="w-10 h-10 rounded-xl bg-[#FDF9F2] flex items-center justify-center hover:bg-white transition-colors shadow-sm text-black hover:text-[#38251E]">
               <i class="fa-brands fa-facebook-f text-base"></i>
             </a>
             <!-- Instagram -->
-            <a href="404.html" class="w-10 h-10 rounded-xl bg-[#FDF9F2] flex items-center justify-center hover:bg-white transition-colors shadow-sm text-[#E4405F]">
+            <a href="404.html" class="w-10 h-10 rounded-xl bg-[#FDF9F2] flex items-center justify-center hover:bg-white transition-colors shadow-sm text-black hover:text-[#38251E]">
               <i class="fa-brands fa-instagram text-base"></i>
             </a>
             <!-- X (Twitter) -->
-            <a href="404.html" class="w-10 h-10 rounded-xl bg-[#FDF9F2] flex items-center justify-center hover:bg-white transition-colors shadow-sm text-black">
+            <a href="404.html" class="w-10 h-10 rounded-xl bg-[#FDF9F2] flex items-center justify-center hover:bg-white transition-colors shadow-sm text-black hover:text-[#38251E]">
               <i class="fa-brands fa-x-twitter text-base"></i>
             </a>
           </div>
         </div>
 
         <!-- Column 2: Links -->
-        <div class="flex flex-col">
-          <h3 class="font-serif text-[1.4rem] text-brand-text mb-6">Links</h3>
-          <ul class="space-y-3.5 font-serif text-[14px] text-brand-text/90">
+          <div class="flex flex-col lg:col-span-2">
+          <h3 class="font-serif text-[1.4rem] text-black mb-6">Links</h3>
+          <ul class="space-y-3.5 font-serif text-[14px] text-white/90">
             <li><a href="index.html" class="hover:text-white transition-colors">Home</a></li>
            <li><a href="about.html" class="hover:text-white transition-colors">About</a></li>
            <li><a href="services.html" class="hover:text-white transition-colors">Services</a></li>
@@ -630,9 +799,9 @@
         </div>
 
         <!-- Column 3: Help -->
-        <div class="flex flex-col">
-          <h3 class="font-serif text-[1.4rem] text-brand-text mb-6">Help</h3>
-          <ul class="space-y-3.5 font-serif text-[14px] text-brand-text/90">
+          <div class="flex flex-col lg:col-span-2">
+          <h3 class="font-serif text-[1.4rem] text-black mb-6">Help</h3>
+          <ul class="space-y-3.5 font-serif text-[14px] text-white/90">
             <li><a href="404.html" class="hover:text-white transition-colors">Shipping</a></li>
             <li><a href="404.html" class="hover:text-white transition-colors">Returns</a></li>
             <li><a href="404.html" class="hover:text-white transition-colors">Skin consultation</a></li>
@@ -640,26 +809,40 @@
           </ul>
         </div>
 
-        <!-- Column 4: Contact Us -->
-        <div class="flex flex-col">
-          <h3 class="font-serif text-[1.4rem] text-brand-text mb-6">Contact us</h3>
-          <div class="space-y-4 font-serif text-[14px] text-brand-text/90 leading-relaxed">
-            <p>
-              MMR Complex,<br/>
-              periyakollapatty,<br/>
-              Chinnatirupathi<br/>
-              Salem<br/>
-              Tamil nadu -636008
-            </p>
-            <p><a href="mailto:info@stackly.com" class="hover:text-white transition-colors">info@stackly.com</a></p>
-            <p><a href="tel:+919876543210" class="hover:text-white transition-colors">+91 98765 43210</a></p>
+                <!-- Column 4: Legal -->
+          <div class="flex flex-col lg:col-span-2">
+          <h3 class="font-serif text-[1.4rem] text-black mb-6">Legal</h3>
+          <ul class="space-y-3.5 font-serif text-[14px] text-white/90">
+            <li><a href="404.html" class="hover:text-white transition-colors">Privacy Policy</a></li>
+            <li><a href="404.html" class="hover:text-white transition-colors">Terms of Service</a></li>
+            <li><a href="404.html" class="hover:text-white transition-colors">Cookie Policy</a></li>
+            <li><a href="404.html" class="hover:text-white transition-colors">Accessibility</a></li>
+          </ul>
+        </div>
+
+        <!-- Column 5: Contact Us -->
+          <div class="flex flex-col lg:col-span-2">
+            <h3 class="font-serif text-[1.4rem] text-black mb-6">Contact us</h3>
+            <div class="space-y-4 font-serif text-[14px] text-white/90 leading-relaxed">
+              <p class="flex items-start gap-3">
+                <i class="fa-solid fa-location-dot mt-1 text-white/80"></i>
+                <span>MMR Complex,<br/>periyakollapatty,<br/>Chinnatirupathi<br/>Salem<br/>Tamil nadu -636008</span>
+              </p>
+              <p class="flex items-center gap-3">
+                <i class="fa-solid fa-envelope text-white/80"></i>
+                <a href="mailto:info@stackly.com" class="hover:text-white transition-colors">info@stackly.com</a>
+              </p>
+              <p class="flex items-center gap-3">
+                <i class="fa-solid fa-phone text-white/80"></i>
+                <a href="tel:+919876543210" class="hover:text-white transition-colors">+91 98765 43210</a>
+              </p>
+            </div>
           </div>
         </div>
       </div>
-    </div>
-    
-    <div class="mt-12 pt-6 pb-2 text-center text-[15px] text-[#FDF9F2]/80 font-sans border-t border-[#38251E]/10">
-      &copy; 2026 Stackly Beauty. All rights reserved.
+      
+      <div class="mt-12 pt-6 pb-2 text-center text-[15px] text-[#FDF9F2]/80 font-sans border-t border-[#38251E]/10">
+        &copy; 2026 Stackly Beauty. All rights reserved.
     </div>
   </footer>
 
@@ -669,8 +852,29 @@
   <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
   <script src='main.js'></script>
     <script src="premium-animations.js"></script>
+    <script src="custom-additions.js"></script>
 </body>
 </html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

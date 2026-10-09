@@ -85,7 +85,7 @@ document.addEventListener("click", (e) => {
     if (btn) {
         // Allow password visibility toggle and go back button
         const onclickAttr = btn.getAttribute("onclick") || "";
-        if (btn.id === "mobile-menu-toggle" || btn.id === "dashboard-menu-toggle" || onclickAttr.includes("pwd") || onclickAttr.includes("togglePwd") || onclickAttr.includes("history") || btn.classList.contains("go-back-btn")) {
+        if (btn.id === "mobile-menu-toggle" || btn.classList.contains("faq-btn") || btn.id === "dashboard-menu-toggle" || onclickAttr.includes("pwd") || onclickAttr.includes("togglePwd") || onclickAttr.includes("history") || btn.classList.contains("go-back-btn")) {
             return;
         }
 
@@ -96,7 +96,7 @@ document.addEventListener("click", (e) => {
 
         // Allow form submission on real forms (contact, login, signup)
         const form = btn.closest("form");
-        if (form && (form.id === "contact-form" || form.id === "login-form" || form.id === "signup-form")) {
+        if (form && (form.id === "contact-form" || form.id === "login-form" || form.id === "signup-form" || form.id === "newsletterForm")) {
             if (btn.type === "submit" || btn.id === "contact-submit-btn") {
                 return;
             }
@@ -142,5 +142,17 @@ document.addEventListener("DOMContentLoaded", () => {
                 }
             }
         });
+        
+        // Close sidebar when a nav link inside it is clicked on mobile
+        const sidebarNavLinks = dashboardSidebar.querySelectorAll('.nav-link');
+        sidebarNavLinks.forEach(link => {
+            link.addEventListener('click', () => {
+                if (window.innerWidth < 768) {
+                    dashboardSidebar.classList.add("-translate-x-full");
+                }
+            });
+        });
     }
 });
+
+

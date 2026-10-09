@@ -22,13 +22,7 @@ document.addEventListener("DOMContentLoaded", () => {
                 nav.classList.remove('scrolled');
             }
 
-            // Hide/Show on scroll up/down
-            if (currentScrollY > lastScrollY && currentScrollY > 100) {
-                gsap.to(nav, { yPercent: -100, duration: 0.4, ease: "power2.inOut" });
-            } else {
-                gsap.to(nav, { yPercent: 0, duration: 0.4, ease: "power2.inOut" });
-            }
-            lastScrollY = currentScrollY;
+    
         });
 
         // Initial Navbar Entrance
