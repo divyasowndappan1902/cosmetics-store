@@ -17,7 +17,7 @@
 <body class="bg-[#FDF9F2] text-[#38251E] font-sans antialiased flex h-screen overflow-hidden">
 
   <!-- Luxury Stackly Preloader -->
-  <div id="preloader" style="position: fixed; top: 0; left: 0; width: 100%; height: 100%; z-index: 9999999; background-color: #FDF9F2; display: flex; flex-direction: column; align-items: center; justify-content: center; user-select: none;">
+  <div id="preloader" style="position: fixed; top: 0; left: 0; right: 0; bottom: 0; width: 100vw; height: 100vh; height: 100dvh; z-index: 9999999; background-color: #FDF9F2; display: flex; flex-direction: column; align-items: center; justify-content: center; user-select: none;">
     <style>
       @keyframes stFloat {
         0%, 100% { transform: translateY(0); }
@@ -240,7 +240,7 @@
                 <!-- Welcome Banner -->
                 <div class="w-full bg-[#3F2B26] rounded-3xl p-8 md:p-10 text-white mb-8 relative overflow-hidden flex items-center shadow-lg">
                   <div class="relative z-10 max-w-lg">
-                    <h2 class="font-serif text-[2.5rem] mb-2 leading-tight">Welcome back</h2>
+                    <h2 class="font-serif text-[2.5rem] mb-2 leading-tight">Welcome back<span id="dynamic-user-name"></span></h2>
                     <p class="text-white/80 text-[15px] mb-6">You have 450 beauty points available. Redeem them for exclusive rewards on your next order.</p>
                     <a href="404.html" class="inline-block bg-[#CBA87F] text-white px-6 py-2.5 rounded-full font-sans text-[13px] font-medium tracking-wide hover:bg-[#B39366] transition-colors shadow-md">
                       Redeem Points
@@ -1070,6 +1070,25 @@
         if (initialsEl) initialsEl.textContent = customerUser.initials;
     });
   </script>
+<script>
+document.addEventListener('DOMContentLoaded', () => {
+    const nameSpan = document.getElementById('dynamic-user-name');
+    if (nameSpan) {
+        let name = localStorage.getItem('userName');
+        let email = localStorage.getItem('userEmail');
+        if (name) {
+            // Capitalize first letter of each word
+            name = name.split(' ').map(w => w.charAt(0).toUpperCase() + w.slice(1)).join(' ');
+            nameSpan.textContent = ', ' + name;
+        } else if (email) {
+            // Extract from email
+            let parts = email.split('@')[0].split(/[._-]/);
+            name = parts.map(w => w.charAt(0).toUpperCase() + w.slice(1)).join(' ');
+            nameSpan.textContent = ', ' + name;
+        }
+    }
+});
+</script>
 </body>
 </html>
 

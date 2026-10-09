@@ -156,3 +156,44 @@ document.addEventListener("DOMContentLoaded", () => {
 });
 
 
+
+// Replaced by animations.js (AOS and GSAP implementation)
+// Note: Accordion logic remains below if needed, but we'll re-implement if necessary.
+document.addEventListener("DOMContentLoaded", () => {
+    // 2. Accordion Interaction (Ask Our Beauty Experts)
+    const faqBtns = document.querySelectorAll('.faq-btn');
+    faqBtns.forEach(btn => {
+        btn.addEventListener('click', (e) => {
+            e.preventDefault();
+            const currentItem = btn.closest('.faq-item');
+            const currentContent = currentItem.querySelector('.faq-content');
+            const currentIcon = btn.querySelector('.faq-icon i');
+            const isOpen = currentContent.style.maxHeight !== '0px' && currentContent.style.maxHeight !== '';
+
+            // Close all
+            document.querySelectorAll('.faq-content').forEach(content => {
+                content.style.maxHeight = '0px';
+                const parent = content.closest('.faq-item');
+                if(parent) {
+                    parent.classList.remove('border-[#C59A65]');
+                    parent.classList.add('border-[#38251E]/10');
+                }
+            });
+            document.querySelectorAll('.faq-icon i').forEach(icon => {
+                icon.className = 'fa-solid fa-plus';
+                icon.parentElement.classList.remove('bg-[#38251E]', 'text-[#FDF9F2]');
+                icon.parentElement.classList.add('text-[#38251E]');
+            });
+
+            // Open clicked if it was closed
+            if (!isOpen) {
+                currentContent.style.maxHeight = currentContent.scrollHeight + 'px';
+                currentItem.classList.remove('border-[#38251E]/10');
+                currentItem.classList.add('border-[#C59A65]');
+                currentIcon.className = 'fa-solid fa-minus';
+                currentIcon.parentElement.classList.remove('text-[#38251E]');
+                currentIcon.parentElement.classList.add('bg-[#38251E]', 'text-[#FDF9F2]');
+            }
+        });
+    });
+});
